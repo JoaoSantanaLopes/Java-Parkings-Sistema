@@ -1,13 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.endereco;
-
-/**
- *
- * @author Joao
- */
 public class Endereco {
     private String cep;
     private String rua;
