@@ -9,3 +9,6 @@ Versão 02
 
 Versão 03
 ![Diagrama Versão 3](https://drive.google.com/uc?export=view&id=1lXuqQ5xPR-rRU0TqLiEYwDZ1tmjbPzhE)
+
+Versão 04
+![Diagrama Versão 4](https://drive.google.com/uc?export=view&id=1w4F_putb4H1dG5IDDKigLNxeC4b5M6Ss)
