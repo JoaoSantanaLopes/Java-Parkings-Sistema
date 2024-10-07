@@ -8,8 +8,6 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 * Nicolas Araujo Fonseca Pimenta
 * Pedro Maia da Costa Silva
 * Sol Quaresma Crisóstomo
-* Nome completo do aluno 5
-* Nome completo do aluno 6
 
 ## Professor responsável 
 
