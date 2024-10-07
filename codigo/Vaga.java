@@ -14,10 +14,18 @@ public class Vaga {
     private String identificador;
     private boolean disponibilidade;
     private List<UsoDaVaga> usoDaVaga;
+    private static double valorPor15Min = 4;
+    private static double precoMaximo = 50;
     public Vaga(String identificador, boolean disponibilidade, List<UsoDaVaga> usoDaVaga) {
         this.identificador = identificador;
         this.disponibilidade = disponibilidade;
         this.usoDaVaga = usoDaVaga;
+    }
+    public static double getValorPor15Min() {
+        return valorPor15Min;
+    }
+    public static double getPrecoMaximo() {
+        return precoMaximo;
     }
     public String getIdentificador() {
         return this.identificador;
@@ -37,5 +45,7 @@ public class Vaga {
     public void addUsoVaga(UsoDaVaga novoUso) {
         this.usoDaVaga.add(novoUso);
     }
-
+    public double calcularPrecoVaga(double valorParcial) {
+        return valorParcial;
+    }
 }

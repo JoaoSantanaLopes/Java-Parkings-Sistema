@@ -4,37 +4,49 @@
  */
 package com.mycompany.labzinho;
 
+import java.time.LocalTime;
+import java.time.Duration;
+
 /**
  *
  * @author Pedro
  */
 public class UsoDaVaga {
-    private String dataHoraEntrada;
-    private String dataHoraSaida;
+    private final LocalTime dataHoraEntrada; 
+    private LocalTime dataHoraSaida;
     private Veiculo veiculo;
-    public UsoDaVaga(String dataHoraEntrada,String dataHoraSaida, Veiculo veiculo) {
-        this.dataHoraEntrada = dataHoraEntrada;
-        this.dataHoraSaida = dataHoraSaida;
+    private Vaga vaga;
+    
+    public UsoDaVaga(Veiculo veiculo, Vaga vaga) {
+        this.dataHoraEntrada = LocalTime.now();
         this.veiculo =  veiculo;
+        this.vaga = vaga;
     }
-    public String getDataHoraEntrada() {
+    public LocalTime getDataHoraEntrada() {
         return this.dataHoraEntrada;
     }
-    
-    public void setDataHoraEntrada(String dataHora) {
-       this.dataHoraEntrada = dataHora;
-    }
    
-    public String getDataHoraSaida() {
+    public LocalTime getDataHoraSaida() {
         return this.dataHoraSaida;
-    }
-    public void setDataHoraSaida(String dataHora) {
-       this.dataHoraSaida = dataHora;
     }
     public Veiculo getVeiculo() {
         return this.veiculo;
     }
     public void setVeiculo(Veiculo carro) {
         this.veiculo = carro;
+    }
+    private long calcularTempoEstadia() {
+        long segundos = Duration.between(this.dataHoraEntrada, this.dataHoraSaida).getSeconds();
+        long minutos = segundos/60;
+        return minutos;
+    }
+    public double baixaUsoDaVaga() {
+        this.dataHoraSaida = LocalTime.now();
+        long tempo = calcularTempoEstadia();
+        double valor = Vaga.getValorPor15Min() * tempo;
+        if(valor > Vaga.getPrecoMaximo()) {
+            return vaga.calcularPrecoVaga(Vaga.getPrecoMaximo());
+        }
+        return vaga.calcularPrecoVaga(valor);
     }
 }
