@@ -4,10 +4,12 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
+* Arthur Candian de Azevedo Moia
 * João Vitor Santana Lopes
 * Nicolas Araujo Fonseca Pimenta
 * Pedro Maia da Costa Silva
 * Sol Quaresma Crisóstomo
+  
 
 ## Professor responsável 
 
