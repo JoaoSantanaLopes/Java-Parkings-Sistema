@@ -27,6 +27,15 @@ public class Estacionamento {
         return values.toArray(new Vaga[0]);
     }
 
+    public void adicionarVaga(String codigo, Vaga novaVaga) {
+        if (!vagas.containsKey(codigo)) {
+            vagas.put(codigo, novaVaga);
+            System.out.println("Vaga " + codigo + " adicionada com sucesso.");
+        } else {
+            System.out.println("Erro: Já existe uma vaga com o código " + codigo + ".");
+        }
+    }
+
     public void estacionarVeiculo(String vaga, Veiculo veiculo) {
         Vaga vagaDestino = vagas.get(vaga);
         UsoDaVaga novoUsoVaga = new UsoDaVaga(veiculo, vagaDestino);

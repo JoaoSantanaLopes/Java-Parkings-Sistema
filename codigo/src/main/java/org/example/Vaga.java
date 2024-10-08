@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.List;
+
+
 public class Vaga {
     private String identificador;
     private boolean disponibilidade;
