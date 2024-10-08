@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.Map;
+import java.util.Collection;
+
 public class Estacionamento {
     private String nome;
     private Endereco endereco;
@@ -21,12 +24,13 @@ public class Estacionamento {
 
     public Vaga[] getVagas() {
         Collection<Vaga> values = vagas.values();
-        return values.toArray(new Vaga[0]);;
+        return values.toArray(new Vaga[0]);
     }
 
-    public void estacionarVeiculo(String vaga,Veiculo veiculo, String dataHoraEntrada) {
+    public void estacionarVeiculo(String vaga, Veiculo veiculo) {
         Vaga vagaDestino = vagas.get(vaga);
-        vaga.addUsoVaga(veiculo, dataHoraEntrada);
+        UsoDaVaga novoUsoVaga = new UsoDaVaga(veiculo, vagaDestino);
+        vagaDestino.addUsoVaga(novoUsoVaga);
     }
 }
 

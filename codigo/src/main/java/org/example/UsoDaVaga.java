@@ -41,8 +41,8 @@ public class UsoDaVaga {
         this.dataHoraSaida = LocalTime.now();
         long tempo = calcularTempoEstadia();
         double valor = Vaga.getValorPor15Min() * (tempo / 15);
-        if(valor > Vaga.getPrecoMaximo()) {
-            return vaga.calcularPrecoVaga(Vaga.getPrecoMaximo());
+        if(valor > Vaga.getValorLimite()) {
+            return vaga.calcularPrecoVaga(Vaga.getValorLimite());
         }
         return vaga.calcularPrecoVaga(valor);
     }
