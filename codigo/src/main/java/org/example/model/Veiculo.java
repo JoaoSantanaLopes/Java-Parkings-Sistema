@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.model;
 
 public class Veiculo {
     private String placa;

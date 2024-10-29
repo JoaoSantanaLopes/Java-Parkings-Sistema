@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.model;
 
 import java.util.Map;
 import java.util.Collection;
