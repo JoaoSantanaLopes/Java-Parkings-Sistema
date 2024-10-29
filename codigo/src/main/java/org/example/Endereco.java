@@ -1,3 +1,5 @@
+package org.example;
+
 public class Endereco {
     private String cep;
     private String rua;
