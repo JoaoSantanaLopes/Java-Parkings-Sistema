@@ -4,32 +4,19 @@ import java.time.Month;
 
 public class Utils {
     public final String traduzirNomeDoMes(Month mes) {
-        switch (mes) {
-            case JANUARY:
-                return "Janeiro";
-            case FEBRUARY:
-                return "Fevereiro";
-            case MARCH:
-                return "Março";
-            case APRIL:
-                return "April";
-            case MAY:
-                return "Maio";
-            case JUNE:
-                return "Junho";
-            case JULY:
-                return "Julho";
-            case AUGUST:
-                return "Agosto";
-            case SEPTEMBER:
-                return "Setembro";
-            case OCTOBER:
-                return "Outubro";
-            case NOVEMBER:
-                return "Novembro";
-            case DECEMBER:
-                return "Dezembro";
-        }
-        return "";
+        return switch (mes) {
+            case JANUARY -> "Janeiro";
+            case FEBRUARY -> "Fevereiro";
+            case MARCH -> "Março";
+            case APRIL -> "April";
+            case MAY -> "Maio";
+            case JUNE -> "Junho";
+            case JULY -> "Julho";
+            case AUGUST -> "Agosto";
+            case SEPTEMBER -> "Setembro";
+            case OCTOBER -> "Outubro";
+            case NOVEMBER -> "Novembro";
+            case DECEMBER -> "Dezembro";
+        };
     }
 }
