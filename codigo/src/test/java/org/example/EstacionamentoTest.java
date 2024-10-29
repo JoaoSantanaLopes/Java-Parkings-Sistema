@@ -4,6 +4,9 @@
  */
 package org.example;
 
+import org.example.controller.Endereco;
+import org.example.controller.Estacionamento;
+import org.example.controller.Vaga;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Map;

@@ -4,6 +4,10 @@
  */
 package org.example;
 
+import org.example.controller.Cliente;
+import org.example.controller.UsoDaVaga;
+import org.example.controller.Vaga;
+import org.example.controller.Veiculo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;

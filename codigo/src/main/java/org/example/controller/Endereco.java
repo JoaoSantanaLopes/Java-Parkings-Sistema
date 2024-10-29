@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controller;
 
 public class Endereco {
     private String cep;

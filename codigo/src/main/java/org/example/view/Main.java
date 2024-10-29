@@ -1,7 +1,17 @@
-package org.example;
+package org.example.view;
 
 import java.io.*;
 import java.util.*;
+
+import org.example.controller.Cliente;
+import org.example.controller.Endereco;
+import org.example.controller.Estacionamento;
+import org.example.controller.UsoDaVaga;
+import org.example.controller.Vaga;
+import org.example.controller.VagaIdoso;
+import org.example.controller.VagaPCD;
+import org.example.controller.VagaVip;
+import org.example.controller.Veiculo;
 
 public class Main {
     private static int vagaIdCounter = 1;

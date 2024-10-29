@@ -6,6 +6,7 @@ package org.example;
 
 import java.util.ArrayList;
 import org.junit.jupiter.api.AfterEach;
+import org.example.controller.Cliente;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;

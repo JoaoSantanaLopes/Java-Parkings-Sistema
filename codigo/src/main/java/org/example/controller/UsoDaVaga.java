@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controller;
 
 import java.time.LocalTime;
 import java.time.Duration;

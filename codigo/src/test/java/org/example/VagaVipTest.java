@@ -5,6 +5,9 @@
 package org.example;
 
 import java.util.LinkedList;
+
+import org.example.controller.UsoDaVaga;
+import org.example.controller.VagaVip;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
