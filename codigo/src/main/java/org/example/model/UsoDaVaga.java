@@ -1,26 +1,44 @@
 package org.example.model;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.Duration;
 
 public class UsoDaVaga {
-    private final LocalTime dataHoraEntrada;
-    private LocalTime dataHoraSaida;
+    
+    private static int proxId = 1;
+    private int id;
+    private final LocalDateTime dataHoraEntrada;
+    private LocalDateTime dataHoraSaida;
     private Veiculo veiculo;
+    private Cliente cliente;
     private Vaga vaga;
 
-    public UsoDaVaga(Veiculo veiculo, Vaga vaga) {
-        this.dataHoraEntrada = LocalTime.now();
+    public UsoDaVaga(Veiculo veiculo, Vaga vaga, Cliente cliente) {
+        this.dataHoraEntrada = LocalDateTime.now();
         this.veiculo =  veiculo;
         this.vaga = vaga;
+        this.cliente = cliente;
+        this.id = getProxId();
     }
-
-    public LocalTime getDataHoraEntrada() {
+    
+    private int getProxId(){
+        return proxId++;
+    }
+    
+    public int getId() {
+        return this.id;
+    }
+    
+    public LocalDateTime getDataHoraEntrada() {
         return this.dataHoraEntrada;
     }
 
-    public LocalTime getDataHoraSaida() {
+    public LocalDateTime getDataHoraSaida() {
         return this.dataHoraSaida;
+    }
+    
+    public Cliente getCliente() {
+        return this.cliente;
     }
 
     public Veiculo getVeiculo() {
@@ -38,7 +56,16 @@ public class UsoDaVaga {
     }
 
     public double baixarUsoDaVaga() {
-        this.dataHoraSaida = LocalTime.now();
+        this.dataHoraSaida = LocalDateTime.now();
+        long tempo = calcularTempoEstadia();
+        double valor = Vaga.getValorPor15Min() * (tempo / 15);
+        if(valor > Vaga.getValorLimite()) {
+            return vaga.calcularPrecoVaga(Vaga.getValorLimite());
+        }
+        return vaga.calcularPrecoVaga(valor);
+    }
+
+    public double calcularPrecoEstadia() {
         long tempo = calcularTempoEstadia();
         double valor = Vaga.getValorPor15Min() * (tempo / 15);
         if(valor > Vaga.getValorLimite()) {

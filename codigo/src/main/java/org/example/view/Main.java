@@ -1,17 +1,10 @@
 package org.example.view;
 
 import java.io.*;
+import java.time.Month;
 import java.util.*;
 
-import org.example.model.Cliente;
-import org.example.model.Endereco;
-import org.example.model.Estacionamento;
-import org.example.model.UsoDaVaga;
-import org.example.model.Vaga;
-import org.example.model.VagaIdoso;
-import org.example.model.VagaPCD;
-import org.example.model.VagaVip;
-import org.example.model.Veiculo;
+import org.example.model.*;
 
 public class Main {
     private static int vagaIdCounter = 1;
@@ -29,7 +22,9 @@ public class Main {
             System.out.println("3. Estacionar Veículo");
             System.out.println("4. Liberar Vaga");
             System.out.println("5. Listar Estacionamentos");
-            System.out.println("6. Sair");
+            System.out.println("6. Listar arrecadação total por mês");
+            System.out.println("7. Listar valor médio por utilização");
+            System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -60,6 +55,14 @@ public class Main {
                     break;
 
                 case 6:
+                    valorArrecadadoPorMes(estacionamentos, scanner);
+                    break;
+
+                case 7:
+                    calcularValorMedioPorUtilizacao(estacionamentos);
+                    break;
+
+                case 8:
                     sair = true;
                     System.out.println("Encerrando o sistema...");
                     break;
@@ -168,7 +171,7 @@ public class Main {
 
                 System.out.print("Identificador da Vaga: ");
                 String idVaga = scanner.nextLine();
-                est.estacionarVeiculo(idVaga, veiculo);
+                est.estacionarVeiculo(idVaga, veiculo, cliente);
                 System.out.println("Veículo estacionado com sucesso!");
             } else {
                 System.out.println("Cliente não encontrado!");
@@ -319,4 +322,60 @@ public class Main {
         }
     }
 
+    private static double valorArrecadadoPorMes(List<Estacionamento> estacionamentos, Scanner scanner) {
+        Utils utils = new Utils();
+        for (Month mes : Month.values()) {
+            int index = mes.getValue();
+            System.out.println(index + ". " + utils.traduzirNomeDoMes(mes));
+        }
+
+        System.out.print("Selecione o mês desejado: ");
+        String mes = scanner.nextLine();
+        Month mesParsed = Month.of(Integer.parseInt(mes));
+
+        List<UsoDaVaga> vagasDoMes = new ArrayList<>();
+
+        for (Estacionamento estacionamento : estacionamentos) {
+            for (Vaga vaga : estacionamento.getVagas()) {
+                List<UsoDaVaga> usoDaVaga = vaga.getUsoDaVaga();
+
+                for (UsoDaVaga uso : usoDaVaga) {
+                    Month dateMes = uso.getDataHoraEntrada().getMonth();
+
+                    if (dateMes.equals(mesParsed)) {
+                        vagasDoMes.add(uso);
+                    }
+                }
+            }
+        }
+
+        double valorTotal = 0;
+
+        for (UsoDaVaga uso : vagasDoMes) {
+            valorTotal += uso.calcularPrecoEstadia();
+        }
+
+        System.out.println("Valor total arrecadado no mês de " + utils.traduzirNomeDoMes(mesParsed) + " foi de: " + valorTotal);
+
+        return valorTotal;
+    }
+
+    private static void calcularValorMedioPorUtilizacao(List<Estacionamento> estacionamentos) {
+        double valorTotal = 0;
+        int totalUsos = 0;
+
+        for (Estacionamento estacionamento : estacionamentos) {
+            for (Vaga vaga : estacionamento.getVagas()) {
+                List<UsoDaVaga> usoDaVaga = vaga.getUsoDaVaga();
+
+                for (UsoDaVaga uso : usoDaVaga) {
+                    valorTotal += uso.calcularPrecoEstadia();
+                    totalUsos++;
+                }
+            }
+        }
+
+        double valorMedio = totalUsos > 0 ? valorTotal / totalUsos : 0;
+        System.out.println("Valor médio por utilização em todas as utilizações foi de: " + valorMedio);
+    }
 }

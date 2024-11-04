@@ -34,6 +34,15 @@ public class Cliente {
     public ArrayList<Veiculo> getVeiculos() {
         return veiculos;
     }
+    
+    public Veiculo getVeiculoPlaca(String placa) {
+        for(Veiculo obj : veiculos) {
+            if(obj.getPlaca() == placa) {
+                return obj;
+            }
+        }
+        return null;
+    }
 
     public String getTelefone() {
         return telefone;
