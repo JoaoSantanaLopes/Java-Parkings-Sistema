@@ -36,9 +36,9 @@ public class Estacionamento {
         }
     }
 
-    public void estacionarVeiculo(String vaga, Veiculo veiculo) {
+    public void estacionarVeiculo(String vaga, Veiculo veiculo, Cliente cliente) {
         Vaga vagaDestino = vagas.get(vaga);
-        UsoDaVaga novoUsoVaga = new UsoDaVaga(veiculo, vagaDestino);
+        UsoDaVaga novoUsoVaga = new UsoDaVaga(veiculo, vagaDestino, cliente);
         vagaDestino.addUsoVaga(novoUsoVaga);
     }
 }

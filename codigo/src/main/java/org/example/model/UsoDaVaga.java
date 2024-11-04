@@ -4,23 +4,41 @@ import java.time.LocalDateTime;
 import java.time.Duration;
 
 public class UsoDaVaga {
+    
+    private static int proxId = 1;
+    private int id;
     private final LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
     private Veiculo veiculo;
+    private Cliente cliente;
     private Vaga vaga;
 
-    public UsoDaVaga(Veiculo veiculo, Vaga vaga) {
+    public UsoDaVaga(Veiculo veiculo, Vaga vaga, Cliente cliente) {
         this.dataHoraEntrada = LocalDateTime.now();
         this.veiculo =  veiculo;
         this.vaga = vaga;
+        this.cliente = cliente;
+        this.id = getProxId();
     }
-
+    
+    private int getProxId(){
+        return proxId++;
+    }
+    
+    public int getId() {
+        return this.id;
+    }
+    
     public LocalDateTime getDataHoraEntrada() {
         return this.dataHoraEntrada;
     }
 
     public LocalDateTime getDataHoraSaida() {
         return this.dataHoraSaida;
+    }
+    
+    public Cliente getCliente() {
+        return this.cliente;
     }
 
     public Veiculo getVeiculo() {

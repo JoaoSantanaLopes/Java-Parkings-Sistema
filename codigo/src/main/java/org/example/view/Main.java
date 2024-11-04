@@ -171,7 +171,7 @@ public class Main {
 
                 System.out.print("Identificador da Vaga: ");
                 String idVaga = scanner.nextLine();
-                est.estacionarVeiculo(idVaga, veiculo);
+                est.estacionarVeiculo(idVaga, veiculo, cliente);
                 System.out.println("Veículo estacionado com sucesso!");
             } else {
                 System.out.println("Cliente não encontrado!");
