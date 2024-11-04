@@ -4,6 +4,7 @@
  */
 package DTO;
 
+import org.example.DTO.AbstractDAO;
 import java.util.ArrayList;
 import org.example.model.Cliente;
 
