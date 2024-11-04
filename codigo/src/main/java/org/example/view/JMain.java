@@ -53,6 +53,11 @@ public class JMain extends javax.swing.JFrame {
         });
 
         btnListarEstacionamentos.setText("Listar estacionamentos");
+        btnListarEstacionamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarEstacionamentosActionPerformed(evt);
+            }
+        });
 
         btnLiberarVaga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnLiberarVaga.setText("Liberar vaga");
@@ -159,13 +164,19 @@ public class JMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnLiberarVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiberarVagaActionPerformed
-        // TODO add your handling code here:
+        LiberarVaga tela = new LiberarVaga(this, true);
+        tela.setVisible(true);
     }//GEN-LAST:event_btnLiberarVagaActionPerformed
 
     private void btnEstacionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionarVeiculoActionPerformed
         EstacionarVeiculo tela = new EstacionarVeiculo(this, true);
         tela.setVisible(true);
     }//GEN-LAST:event_btnEstacionarVeiculoActionPerformed
+
+    private void btnListarEstacionamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEstacionamentosActionPerformed
+        ListarEstacionamentos tela = new ListarEstacionamentos(this, true);
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnListarEstacionamentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,7 +189,7 @@ public class JMain extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
