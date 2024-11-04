@@ -395,5 +395,11 @@ public class CadastrarEstacionamento extends javax.swing.JDialog {
     return QtdVagasPcd.getText();
     }
 
+    public javax.swing.JButton getBtnCadastrar() {
+    return btnCadastrar;
+    }
 
+    public javax.swing.JButton getBtnVoltar() {
+    return btnVoltar;
+    }
 }

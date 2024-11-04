@@ -241,5 +241,11 @@ public class CadastrarCliente extends javax.swing.JDialog {
     return telefone.getText().replaceAll("[^\\d]", ""); 
     }
 
+    public javax.swing.JButton getBtnCadastrar() {
+    return btnCadastrar;
+    }
 
+    public javax.swing.JButton getBtnVoltar() {
+    return btnVoltar;
+    }
 }

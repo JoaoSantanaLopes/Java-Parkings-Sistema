@@ -97,6 +97,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Hist&#xf3;rico cliente"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistoricoClienteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnValores">
           <Properties>

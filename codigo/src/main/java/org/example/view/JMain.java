@@ -44,6 +44,11 @@ public class JMain extends javax.swing.JFrame {
         jLabel1.setText("Estacionamento Java Parkings");
 
         btnHistoricoCliente.setText("Histórico cliente");
+        btnHistoricoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistoricoClienteActionPerformed(evt);
+            }
+        });
 
         btnValores.setText("Valores");
         btnValores.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +152,16 @@ public class JMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnValoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoresActionPerformed
-        // TODO add your handling code here:
+        PerguntaEstacionamento tlm = new PerguntaEstacionamento(this, true);
+        tlm.getBtnVoltar().addActionListener(evento -> {
+            tlm.dispose();
+        });
+        tlm.getBtnProsseguir().addActionListener(evento -> {
+        tlm.dispose();
+        Valores tela = new Valores(this, true);
+        tela.setVisible(true);
+        });
+        tlm.setVisible(true);
     }//GEN-LAST:event_btnValoresActionPerformed
 
     private void btnCadastrarEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarEstacionamentoActionPerformed
@@ -177,6 +191,19 @@ public class JMain extends javax.swing.JFrame {
         ListarEstacionamentos tela = new ListarEstacionamentos(this, true);
         tela.setVisible(true);
     }//GEN-LAST:event_btnListarEstacionamentosActionPerformed
+
+    private void btnHistoricoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoClienteActionPerformed
+        PerguntaCpf tlm = new PerguntaCpf(this, true);
+        tlm.getBtnVoltar().addActionListener(evento -> {
+            tlm.dispose();
+        });
+        tlm.getBtnProsseguir().addActionListener(evento -> {
+        tlm.dispose();
+        HistoricoCliente tela = new HistoricoCliente(this, true);
+        tela.setVisible(true);
+        });
+        tlm.setVisible(true);
+    }//GEN-LAST:event_btnHistoricoClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,4 +251,32 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnCadastrarCliente() {
+    return btnCadastrarCliente;
+    }
+
+    public javax.swing.JButton getBtnCadastrarEstacionamento() {
+    return btnCadastrarEstacionamento;
+    }
+
+    public javax.swing.JButton getBtnEstacionarVeiculo() {
+    return btnEstacionarVeiculo;
+    }
+
+    public javax.swing.JButton getBtnHistoricoCliente() {
+    return btnHistoricoCliente;
+    }
+
+    public javax.swing.JButton getBtnLiberarVaga() {
+    return btnLiberarVaga;
+    }
+
+    public javax.swing.JButton getBtnListarEstacionamentos() {
+    return btnListarEstacionamentos;
+    }
+
+    public javax.swing.JButton getBtnValores() {
+    return btnValores;
+    }
 }

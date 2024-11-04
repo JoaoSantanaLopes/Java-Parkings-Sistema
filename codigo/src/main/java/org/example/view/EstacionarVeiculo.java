@@ -325,5 +325,11 @@ public class EstacionarVeiculo extends javax.swing.JDialog {
     return marca.getText();
     }
 
+    public javax.swing.JButton getBtnEstacionar() {
+    return btnEstacionar;
+    }
 
+    public javax.swing.JButton getBtnVoltar() {
+    return btnVoltar;
+    }
 }
