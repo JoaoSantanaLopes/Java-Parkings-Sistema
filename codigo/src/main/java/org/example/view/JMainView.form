@@ -47,16 +47,17 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnValores" min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="btnHistoricoCliente" min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="btnEstacionarVeiculo" min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="btnLiberarVaga" min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="btnCadastrarCliente" min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="btnListarEstacionamentos" min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="btnCadastrarEstacionamento" min="-2" pref="180" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnValores" pref="180" max="32767" attributes="0"/>
+                      <Component id="btnHistoricoCliente" pref="180" max="32767" attributes="0"/>
+                      <Component id="btnEstacionarVeiculo" pref="180" max="32767" attributes="0"/>
+                      <Component id="btnLiberarVaga" pref="180" max="32767" attributes="0"/>
+                      <Component id="btnCadastrarCliente" pref="180" max="32767" attributes="0"/>
+                      <Component id="btnListarEstacionamentos" pref="180" max="32767" attributes="0"/>
+                      <Component id="btnCadastrarEstacionamento" pref="180" max="32767" attributes="0"/>
+                      <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="159" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -65,21 +66,23 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnCadastrarEstacionamento" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnCadastrarCliente" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnLiberarVaga" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnEstacionarVeiculo" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnListarEstacionamentos" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnHistoricoCliente" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnValores" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -153,6 +156,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarEstacionamentoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cadastrar ve&#xed;culo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
