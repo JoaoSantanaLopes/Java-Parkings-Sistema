@@ -35,7 +35,7 @@ public class JMainView extends javax.swing.JFrame {
         btnEstacionarVeiculo = new javax.swing.JButton();
         btnCadastrarCliente = new javax.swing.JButton();
         btnCadastrarEstacionamento = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnCadastrarVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -95,10 +95,10 @@ public class JMainView extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cadastrar veículo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarVeiculo.setText("Cadastrar veículo");
+        btnCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastrarVeiculoActionPerformed(evt);
             }
         });
 
@@ -120,7 +120,7 @@ public class JMainView extends javax.swing.JFrame {
                     .addComponent(btnCadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(btnListarEstacionamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(btnCadastrarEstacionamento, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -143,7 +143,7 @@ public class JMainView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnValores, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -183,9 +183,7 @@ public class JMainView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarEstacionamentoActionPerformed
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-        // tem que passar isso pro controller
-        CadastrarClienteView tela = new CadastrarClienteView();
-        tela.setVisible(true);
+
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnLiberarVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiberarVagaActionPerformed
@@ -216,18 +214,9 @@ public class JMainView extends javax.swing.JFrame {
         tlm.setVisible(true);
     }//GEN-LAST:event_btnHistoricoClienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PerguntaCpfVeiculoView tlm = new PerguntaCpfVeiculoView(this, true);
-        tlm.getBtnVoltar().addActionListener(evento -> {
-            tlm.dispose();
-        });
-        tlm.getBtnProsseguir().addActionListener(evento -> {
-        tlm.dispose();
-        CadastrarVeiculoView tela = new CadastrarVeiculoView(this, true);
-        tela.setVisible(true);
-        });
-        tlm.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
+        
+    }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,18 +257,22 @@ public class JMainView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarCliente;
     private javax.swing.JButton btnCadastrarEstacionamento;
+    private javax.swing.JButton btnCadastrarVeiculo;
     private javax.swing.JButton btnEstacionarVeiculo;
     private javax.swing.JButton btnHistoricoCliente;
     private javax.swing.JButton btnLiberarVaga;
     private javax.swing.JButton btnListarEstacionamentos;
     private javax.swing.JButton btnValores;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JButton getBtnCadastrarCliente() {
     return btnCadastrarCliente;
+    }
+    
+    public javax.swing.JButton getBtnCadastrarVeiculo() {
+        return btnCadastrarVeiculo;
     }
 
     public javax.swing.JButton getBtnCadastrarEstacionamento() {

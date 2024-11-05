@@ -12,7 +12,7 @@ public class Vaga {
     private static double valorLimite = 50;
 
     public Vaga(String identificador, boolean disponibilidade) {
-        this.identificador = identificador + this.getProxId();
+        this.identificador = "V" + this.getProxId();
         this.disponibilidade = disponibilidade;
         this.usoDaVaga = new ArrayList<>();
     }

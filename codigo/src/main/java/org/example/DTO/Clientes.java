@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.example.model.Cliente;
+import org.example.model.Veiculo;
 
 /**
  *
@@ -24,8 +25,10 @@ public class Clientes extends AbstractDAO implements Serializable {
     }
     
     public static Clientes getInstancia(){
-        if(instancia == null)
+        if(instancia == null){
             instancia = new Clientes();
+            instancia.setClientes(instancia.ler("clientes.txt"));
+        }
         return instancia;
     }
     
@@ -42,14 +45,26 @@ public class Clientes extends AbstractDAO implements Serializable {
         return this.clientes;
     }
     
-    public void setClientes(List obj) {
+    private void setClientes(List obj) {
         this.clientes = (ArrayList<Cliente>) obj;
     }
     
     public Cliente pesquisarCliente(String cpf){
         for (Cliente obj : clientes) {
+            System.out.print(obj);
             if(obj.getCpf().equalsIgnoreCase(cpf))
                 return obj;
+        }
+        return null;
+    }
+    
+        public Veiculo pesquisarVeiculoCliente(String placa){
+        for (Cliente obj : clientes) {
+            ArrayList<Veiculo> carros = obj.getVeiculos();
+            for(Veiculo newobj : carros){
+                if(newobj.getPlaca().equalsIgnoreCase(placa))
+                    return newobj;
+            }
         }
         return null;
     }

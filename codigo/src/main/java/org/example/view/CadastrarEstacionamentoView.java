@@ -5,6 +5,7 @@
 package org.example.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -33,11 +34,9 @@ public class CadastrarEstacionamentoView extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         nomeEstacionamento = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        cep = new javax.swing.JFormattedTextField();
         rua = new javax.swing.JTextField();
         numero = new javax.swing.JTextField();
         Bairro = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -68,19 +67,11 @@ public class CadastrarEstacionamentoView extends javax.swing.JDialog {
 
         jLabel1.setText("Nome");
 
-        try {
-            cep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         rua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ruaActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("CEP");
 
         jLabel3.setText("Rua");
 
@@ -96,15 +87,8 @@ public class CadastrarEstacionamentoView extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(nomeEstacionamento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(cep)))
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -120,20 +104,17 @@ public class CadastrarEstacionamentoView extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(32, 32, 32))
-                            .addComponent(numero, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))))
+                            .addComponent(numero, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)))
+                    .addComponent(nomeEstacionamento))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeEstacionamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(nomeEstacionamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -271,19 +252,17 @@ public class CadastrarEstacionamentoView extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ruaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ruaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ruaActionPerformed
-
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        //por enquanto esse botao ta apenas fechando a pagina, tem que adicionar as parada de salvar os nome depois
-        this.dispose();   
-        JOptionPane.showMessageDialog(null, "Estacionamento Cadastrado!");
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void ruaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ruaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ruaActionPerformed
 
     private void nomeEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeEstacionamentoActionPerformed
         // TODO add your handling code here:
@@ -337,10 +316,8 @@ public class CadastrarEstacionamentoView extends javax.swing.JDialog {
     private javax.swing.JTextField QtdVagasPcd;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JFormattedTextField cep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -359,41 +336,36 @@ public class CadastrarEstacionamentoView extends javax.swing.JDialog {
     private javax.swing.JTextField rua;
     // End of variables declaration//GEN-END:variables
 
-    public String getNomeEstacionamento() {
-    return nomeEstacionamento.getText();
+    public JTextField getNomeEstacionamento() {
+    return nomeEstacionamento;
     }
 
-    public String getCep() {
-    //isso aqui manda so os numeros pra quem chamar o get
-    return cep.getText().replaceAll("[^\\d]", "");
+    public JTextField getRua() {
+    return rua;
     }
 
-    public String getRua() {
-    return rua.getText();
+    public JTextField getNumero() {
+    return numero;
     }
 
-    public String getNumero() {
-    return numero.getText();
+    public JTextField getBairro() {
+    return Bairro;
     }
 
-    public String getBairro() {
-    return Bairro.getText();
+    public JTextField getQtdVagasNormais() {
+    return qtdVagasNormais;
     }
 
-    public String getQtdVagasNormais() {
-    return qtdVagasNormais.getText();
+    public JTextField getQtdVagasVip() {
+    return qtdVagasVip;
     }
 
-    public String getQtdVagasVip() {
-    return qtdVagasVip.getText();
+    public JTextField getQtdVagasIdoso() {
+    return qtdVagasIdoso;
     }
 
-    public String getQtdVagasIdoso() {
-    return qtdVagasIdoso.getText();
-    }
-
-    public String getQtdVagasPcd() {
-    return QtdVagasPcd.getText();
+    public JTextField getQtdVagasPcd() {
+    return QtdVagasPcd;
     }
 
     public javax.swing.JButton getBtnCadastrar() {

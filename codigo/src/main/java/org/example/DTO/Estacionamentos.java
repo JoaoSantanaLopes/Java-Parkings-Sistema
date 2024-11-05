@@ -6,6 +6,7 @@ package org.example.DTO;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import org.example.model.Estacionamento;
 
 /**
@@ -22,8 +23,10 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
     }
     
     public static Estacionamentos getInstancia(){
-        if(instancia == null)
+        if(instancia == null){
             instancia = new Estacionamentos();
+            instancia.setEstacionamentos(instancia.ler("estacionamentos.txt"));
+        }
         return instancia;
     }
     
@@ -35,6 +38,10 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
         estacionamentos.remove(obj);
     }
     
+     private void setEstacionamentos(List obj) {
+        this.estacionamentos = (ArrayList<Estacionamento>) obj;
+    }
+    
     public Estacionamento pesquisarEstacionamento(String nome){
         for (Estacionamento obj : estacionamentos) {
             if(obj.getNome().equalsIgnoreCase(nome))
@@ -43,8 +50,13 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
         return null;
     }
     
-    //public String gerarStringGravacao(Estacionamento obj){
-   //     return obj.getNome() + "\t"
-   // }
+    @Override
+    public String toString() {
+    StringBuilder sb = new StringBuilder("Estacionamentos:\n");
+    for (Estacionamento obj : estacionamentos) {
+        sb.append(obj).append("\n");
+    }
+    return sb.toString();
+}
     
 }

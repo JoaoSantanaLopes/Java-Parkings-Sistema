@@ -17,7 +17,8 @@ public class CadastrarClienteView extends javax.swing.JDialog {
      * Creates new form CadastrarCliente
      */
     
-    public CadastrarClienteView() {
+    public CadastrarClienteView(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -207,7 +208,7 @@ public class CadastrarClienteView extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadastrarClienteView dialog = new CadastrarClienteView();
+                CadastrarClienteView dialog = new CadastrarClienteView(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

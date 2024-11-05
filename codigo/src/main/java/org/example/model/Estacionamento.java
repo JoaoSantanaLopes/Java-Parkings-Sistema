@@ -5,12 +5,16 @@ import java.util.Collection;
 
 public class Estacionamento {
     private String nome;
-    private Endereco endereco;
+    private String rua;
+    private String bairro;
+    private int numero;
     private Map<String, Vaga> vagas;
 
-    public Estacionamento (String nome, Endereco endereco, Map<String, Vaga> vagas) {
+    public Estacionamento (String nome, String rua, String bairro, int numero, Map<String, Vaga> vagas) {
         this.nome = nome;
-        this.endereco = endereco;
+        this.bairro = bairro;
+        this.rua = rua;
+        this.numero = numero;
         this.vagas = vagas;
     }
 
@@ -18,9 +22,31 @@ public class Estacionamento {
         return nome;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String getRua() {
+        return rua;
     }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    
 
     public Vaga[] getVagas() {
         Collection<Vaga> values = vagas.values();

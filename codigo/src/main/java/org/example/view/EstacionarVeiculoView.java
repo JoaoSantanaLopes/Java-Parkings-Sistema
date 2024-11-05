@@ -38,12 +38,8 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         cpf = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
-        modelo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         placa = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        marca = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         btnEstacionar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
@@ -62,6 +58,12 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
         });
 
         jLabel2.setText("Identificador da vaga");
+
+        identificadorVaga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                identificadorVagaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Cpf do cliente");
 
@@ -119,10 +121,6 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
 
         jLabel4.setText("Placa do Veículo");
 
-        jLabel5.setText("Modelo do Veículo");
-
-        jLabel6.setText("Marca do Veículo");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -130,36 +128,20 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(modelo)
+                    .addComponent(placa)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(marca))))
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6))
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnEstacionar.setText("Estacionar");
@@ -237,6 +219,10 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeEstacionamentoActionPerformed
 
+    private void identificadorVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identificadorVagaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_identificadorVagaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,13 +277,9 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField marca;
-    private javax.swing.JTextField modelo;
     private javax.swing.JTextField nomeEstacionamento;
     private javax.swing.JTextField placa;
     // End of variables declaration//GEN-END:variables
@@ -315,16 +297,8 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
     return cpf.getText().replaceAll("[^\\d]", ""); 
     }
 
-    public String getModelo() {
-    return modelo.getText();
-    }
-
     public String getPlaca() {
     return placa.getText();
-    }
-
-    public String getMarca() {
-    return marca.getText();
     }
 
     public javax.swing.JButton getBtnEstacionar() {

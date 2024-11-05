@@ -14,7 +14,7 @@ public class ClienteController {
     
     public ClienteController() {
         
-        this.view = new CadastrarClienteView();
+        this.view = new CadastrarClienteView(new javax.swing.JFrame(), true);
 
         this.clientes = Clientes.getInstancia();
         

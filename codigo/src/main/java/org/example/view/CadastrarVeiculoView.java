@@ -240,4 +240,24 @@ public class CadastrarVeiculoView extends javax.swing.JDialog {
     private javax.swing.JTextField placa;
     private javax.swing.JFormattedTextField telefone;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnVoltar() {
+        return this.btnVoltar;
+    }
+    
+    public javax.swing.JButton getBtnCadastrar() {
+        return this.btnCadastrar;
+    }
+    
+    public javax.swing.JTextField getPlaca() {
+        return this.placa;
+    }
+    
+    public javax.swing.JTextField getModelo() {
+        return this.modelo;
+    }
+    
+    public javax.swing.JTextField getMarca() {
+        return this.marca;
+    }
 }
