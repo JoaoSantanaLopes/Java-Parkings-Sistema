@@ -1,21 +1,26 @@
 package org.example.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 
 public class Vaga {
+    private static int proxId = 1;
     private String identificador;
     private boolean disponibilidade;
-    private List<UsoDaVaga> usoDaVaga;
+    private ArrayList<UsoDaVaga> usoDaVaga;
     private static double valorPor15Min = 4;
     private static double valorLimite = 50;
 
-    public Vaga(String identificador, boolean disponibilidade, List<UsoDaVaga> usoDaVaga) {
-        this.identificador = identificador;
+    public Vaga(String identificador, boolean disponibilidade) {
+        this.identificador = identificador + this.getProxId();
         this.disponibilidade = disponibilidade;
-        this.usoDaVaga = usoDaVaga;
+        this.usoDaVaga = new ArrayList<>();
     }
-
+    
+    private int getProxId(){
+        return proxId++;
+    }
+    
     public static double getValorPor15Min() {
         return valorPor15Min;
     }
@@ -40,7 +45,7 @@ public class Vaga {
         this.disponibilidade = disponibilidade;
     }
 
-    public List<UsoDaVaga> getUsoDaVaga() {
+    public ArrayList<UsoDaVaga> getUsoDaVaga() {
         return usoDaVaga;
     }
 

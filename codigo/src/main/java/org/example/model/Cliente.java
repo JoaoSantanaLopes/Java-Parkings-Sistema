@@ -1,26 +1,21 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente {
+public class Cliente implements Serializable{
 
     private String nome;
     private String cpf;
     private ArrayList<Veiculo> veiculos;
     private String telefone;
+     private static final long serialVersionUID = 1L;
 
     public Cliente(String nome, String cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.veiculos = new ArrayList<>(); 
-    }
-
-    public Cliente(String nome, String cpf, String telefone, ArrayList<Veiculo> veiculos) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.veiculos = new ArrayList<>();
     }
 
     public String getNome() {
@@ -63,4 +58,14 @@ public class Cliente {
     public void removerVeiculo(Veiculo veiculo) {
         veiculos.remove(veiculo);
     }
+    
+    @Override
+    public String toString() {
+    return "Cliente { " +
+           "Nome: '" + nome + '\'' +
+           ", CPF: '" + cpf + '\'' +
+           ", Telefone: '" + telefone + '\'' +
+           ", Veiculos: " + veiculos +
+           " }";
+}
 }

@@ -4,6 +4,7 @@
  */
 package org.example.DTO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import org.example.model.Endereco;
 
@@ -11,8 +12,8 @@ import org.example.model.Endereco;
  *
  * @author Pedro
  */
-public class Enderecos {
-        private ArrayList<Endereco> enderecos;
+public class Enderecos extends AbstractDAO implements Serializable{
+        private ArrayList<Endereco>  enderecos;
     private static Enderecos instancia;
     
     private Enderecos() {

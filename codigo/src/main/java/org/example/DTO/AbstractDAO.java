@@ -18,7 +18,7 @@ import java.util.List;
  */
 public abstract class AbstractDAO {
 
-    public String gravar(String local, List lista) {
+    public String gravar(String local, ArrayList lista) {
         try {
             FileOutputStream fo = new FileOutputStream(local);
             ObjectOutputStream oo = new ObjectOutputStream(fo);

@@ -4,6 +4,7 @@
  */
 package org.example.DTO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import org.example.model.Veiculo;
 
@@ -11,7 +12,7 @@ import org.example.model.Veiculo;
  *
  * @author Pedro
  */
-public class Veiculos {
+public class Veiculos extends AbstractDAO implements Serializable{
           
     private ArrayList<Veiculo> veiculos;
     private static Veiculos instancia;

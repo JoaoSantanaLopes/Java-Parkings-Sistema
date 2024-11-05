@@ -4,20 +4,22 @@
  */
 package org.example.DTO;
 
-import org.example.DTO.AbstractDAO;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import org.example.model.Cliente;
 
 /**
  *
  * @author Pedro
  */
-public class Clientes extends AbstractDAO{
+public class Clientes extends AbstractDAO implements Serializable {
     
     private ArrayList<Cliente> clientes;
     private static Clientes instancia;
+    private static final long serialVersionUID = 1L;
     
-    private Clientes() {
+    public Clientes() {
         this.clientes = new ArrayList();
     }
     
@@ -33,6 +35,15 @@ public class Clientes extends AbstractDAO{
     
     public void removerCliente(Cliente obj){
         clientes.remove(obj);
+        
+    }
+    
+    public ArrayList getClientes() {
+        return this.clientes;
+    }
+    
+    public void setClientes(List obj) {
+        this.clientes = (ArrayList<Cliente>) obj;
     }
     
     public Cliente pesquisarCliente(String cpf){
@@ -43,7 +54,14 @@ public class Clientes extends AbstractDAO{
         return null;
     }
     
-    public String gerarStringGravacao(Cliente obj){
-        return obj.getNome() + "\t" + obj.getCpf() + "\t" + obj.getTelefone() + "\n";
+    @Override
+    public String toString() {
+    StringBuilder sb = new StringBuilder("Clientes:\n");
+    for (Cliente cliente : clientes) {
+        sb.append(cliente).append("\n");
     }
+    return sb.toString();
+}
+    
+
 }

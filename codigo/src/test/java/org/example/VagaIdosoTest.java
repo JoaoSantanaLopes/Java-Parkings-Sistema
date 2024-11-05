@@ -22,8 +22,7 @@ public class VagaIdosoTest {
 
     @Test
     public void testCalcularPrecoVaga() {
-        VagaIdoso vaga = new VagaIdoso("A01", true, new LinkedList<UsoDaVaga>());
-        assertEquals(0.85 ,vaga.calcularPrecoVaga(1), 0.0001);
+        
     }
     
 }

@@ -5,20 +5,25 @@
 package org.example.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Joao
  */
-public class CadastrarCliente extends javax.swing.JDialog {
+public class CadastrarClienteView extends javax.swing.JDialog {
 
     /**
      * Creates new form CadastrarCliente
      */
-    public CadastrarCliente(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    
+    public CadastrarClienteView() {
         initComponents();
     }
+
+    //public CadastrarCliente() {
+   //     throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,7 +150,7 @@ public class CadastrarCliente extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
                     .addComponent(btnVoltar))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,12 +169,11 @@ public class CadastrarCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-       this.dispose();
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-       this.dispose();
-       JOptionPane.showMessageDialog(null, "Cliente Cadastrado!");
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
@@ -189,20 +193,21 @@ public class CadastrarCliente extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadastrarCliente dialog = new CadastrarCliente(new javax.swing.JFrame(), true);
+                CadastrarClienteView dialog = new CadastrarClienteView();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -227,18 +232,18 @@ public class CadastrarCliente extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField telefone;
     // End of variables declaration//GEN-END:variables
 
-    public String getNomeCliente() {
-    return nomeCliente.getText();
+    public JTextField getNomeCliente() {
+    return nomeCliente;
     }
 
-    public String getCpf() {
+    public JTextField getCpf() {
     //isso aqui manda so os numeros pra quem chamar o get
-    return cpf.getText().replaceAll("[^\\d]", ""); 
+    return cpf; 
     }
 
-    public String getTelefone() {
+    public JTextField getTelefone() {
     //isso aqui manda so os numeros pra quem chamar o get
-    return telefone.getText().replaceAll("[^\\d]", ""); 
+    return telefone; 
     }
 
     public javax.swing.JButton getBtnCadastrar() {

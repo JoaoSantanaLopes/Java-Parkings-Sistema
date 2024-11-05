@@ -8,12 +8,12 @@ package org.example.view;
  *
  * @author Joao
  */
-public class JMain extends javax.swing.JFrame {
+public class JMainView extends javax.swing.JFrame {
 
     /**
      * Creates new form JMain
      */
-    public JMain() {
+    public JMainView() {
         initComponents();
     }
 
@@ -152,13 +152,13 @@ public class JMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnValoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoresActionPerformed
-        PerguntaEstacionamento tlm = new PerguntaEstacionamento(this, true);
+        PerguntaEstacionamentoView tlm = new PerguntaEstacionamentoView(this, true);
         tlm.getBtnVoltar().addActionListener(evento -> {
             tlm.dispose();
         });
         tlm.getBtnProsseguir().addActionListener(evento -> {
         tlm.dispose();
-        Valores tela = new Valores(this, true);
+        ValoresView tela = new ValoresView(this, true);
         tela.setVisible(true);
         });
         tlm.setVisible(true);
@@ -166,40 +166,40 @@ public class JMain extends javax.swing.JFrame {
 
     private void btnCadastrarEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarEstacionamentoActionPerformed
        //tem que passar isso pro controller
-        CadastrarEstacionamento tela = new CadastrarEstacionamento(this, true);
+        CadastrarEstacionamentoView tela = new CadastrarEstacionamentoView(this, true);
         tela.setVisible(true);
         
     }//GEN-LAST:event_btnCadastrarEstacionamentoActionPerformed
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
         // tem que passar isso pro controller
-        CadastrarCliente tela = new CadastrarCliente(this, true);
+        CadastrarClienteView tela = new CadastrarClienteView();
         tela.setVisible(true);
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnLiberarVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiberarVagaActionPerformed
-        LiberarVaga tela = new LiberarVaga(this, true);
+        LiberarVagaView tela = new LiberarVagaView(this, true);
         tela.setVisible(true);
     }//GEN-LAST:event_btnLiberarVagaActionPerformed
 
     private void btnEstacionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionarVeiculoActionPerformed
-        EstacionarVeiculo tela = new EstacionarVeiculo(this, true);
+        EstacionarVeiculoView tela = new EstacionarVeiculoView(this, true);
         tela.setVisible(true);
     }//GEN-LAST:event_btnEstacionarVeiculoActionPerformed
 
     private void btnListarEstacionamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEstacionamentosActionPerformed
-        ListarEstacionamentos tela = new ListarEstacionamentos(this, true);
+        ListarEstacionamentosView tela = new ListarEstacionamentosView(this, true);
         tela.setVisible(true);
     }//GEN-LAST:event_btnListarEstacionamentosActionPerformed
 
     private void btnHistoricoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoClienteActionPerformed
-        PerguntaCpf tlm = new PerguntaCpf(this, true);
+        PerguntaCpfView tlm = new PerguntaCpfView(this, true);
         tlm.getBtnVoltar().addActionListener(evento -> {
             tlm.dispose();
         });
         tlm.getBtnProsseguir().addActionListener(evento -> {
         tlm.dispose();
-        HistoricoCliente tela = new HistoricoCliente(this, true);
+        HistoricoClienteView tela = new HistoricoClienteView(this, true);
         tela.setVisible(true);
         });
         tlm.setVisible(true);
@@ -222,20 +222,21 @@ public class JMain extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JMainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JMain().setVisible(true);
+                new JMainView().setVisible(true);
             }
         });
     }
