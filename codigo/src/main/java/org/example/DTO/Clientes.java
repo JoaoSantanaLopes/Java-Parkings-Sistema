@@ -58,7 +58,7 @@ public class Clientes extends AbstractDAO implements Serializable {
         return null;
     }
     
-        public Veiculo pesquisarVeiculoCliente(String placa){
+    public Veiculo pesquisarVeiculoCliente(String placa){
         for (Cliente obj : clientes) {
             ArrayList<Veiculo> carros = obj.getVeiculos();
             for(Veiculo newobj : carros){

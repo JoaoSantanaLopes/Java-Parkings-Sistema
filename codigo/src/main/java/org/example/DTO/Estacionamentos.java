@@ -17,6 +17,7 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
     
     private ArrayList<Estacionamento> estacionamentos;
     private static Estacionamentos instancia;
+    private static final long serialVersionUID = 1L;
     
     private Estacionamentos() {
         this.estacionamentos = new ArrayList();
@@ -38,8 +39,12 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
         estacionamentos.remove(obj);
     }
     
-     private void setEstacionamentos(List obj) {
+    public void setEstacionamentos(List obj) {
         this.estacionamentos = (ArrayList<Estacionamento>) obj;
+    }
+     
+    public ArrayList getEstacionamentos(){
+        return this.estacionamentos;
     }
     
     public Estacionamento pesquisarEstacionamento(String nome){

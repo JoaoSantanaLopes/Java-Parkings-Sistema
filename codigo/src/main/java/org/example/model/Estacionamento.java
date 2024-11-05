@@ -1,14 +1,16 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.Collection;
 
-public class Estacionamento {
+public class Estacionamento implements Serializable{
     private String nome;
     private String rua;
     private String bairro;
     private int numero;
     private Map<String, Vaga> vagas;
+    private static final long serialVersionUID = 1L;
 
     public Estacionamento (String nome, String rua, String bairro, int numero, Map<String, Vaga> vagas) {
         this.nome = nome;
@@ -64,8 +66,29 @@ public class Estacionamento {
 
     public void estacionarVeiculo(String vaga, Veiculo veiculo, Cliente cliente) {
         Vaga vagaDestino = vagas.get(vaga);
-        UsoDaVaga novoUsoVaga = new UsoDaVaga(veiculo, vagaDestino, cliente);
+        UsoDaVaga novoUsoVaga = new UsoDaVaga(vagaDestino, cliente);
         vagaDestino.addUsoVaga(novoUsoVaga);
     }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Estacionamento { ")
+          .append("Nome: '").append(nome).append("', ")
+          .append("Rua: '").append(rua).append("', ")
+          .append("Bairro: '").append(bairro).append("', ")
+          .append("Número: ").append(numero).append(", ")
+          .append("Vagas: {");
+
+        for (Map.Entry<String, Vaga> entry : vagas.entrySet()) {
+            sb.append("\n    ")
+              .append("Código: '").append(entry.getKey()).append("', ")
+              .append("Detalhes da Vaga: ").append(entry.getValue());
+        }
+
+        sb.append("\n} }");
+        return sb.toString();
+    }
 }
+
 

@@ -163,23 +163,11 @@ public class JMainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnValoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoresActionPerformed
-        PerguntaEstacionamentoView tlm = new PerguntaEstacionamentoView(this, true);
-        tlm.getBtnVoltar().addActionListener(evento -> {
-            tlm.dispose();
-        });
-        tlm.getBtnProsseguir().addActionListener(evento -> {
-        tlm.dispose();
-        ValoresView tela = new ValoresView(this, true);
-        tela.setVisible(true);
-        });
-        tlm.setVisible(true);
+
     }//GEN-LAST:event_btnValoresActionPerformed
 
     private void btnCadastrarEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarEstacionamentoActionPerformed
-       //tem que passar isso pro controller
-        CadastrarEstacionamentoView tela = new CadastrarEstacionamentoView(this, true);
-        tela.setVisible(true);
-        
+
     }//GEN-LAST:event_btnCadastrarEstacionamentoActionPerformed
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
@@ -187,31 +175,19 @@ public class JMainView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnLiberarVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiberarVagaActionPerformed
-        LiberarVagaView tela = new LiberarVagaView(this, true);
-        tela.setVisible(true);
+    
     }//GEN-LAST:event_btnLiberarVagaActionPerformed
 
     private void btnEstacionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionarVeiculoActionPerformed
-        EstacionarVeiculoView tela = new EstacionarVeiculoView(this, true);
-        tela.setVisible(true);
+     
     }//GEN-LAST:event_btnEstacionarVeiculoActionPerformed
 
     private void btnListarEstacionamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEstacionamentosActionPerformed
-        ListarEstacionamentosView tela = new ListarEstacionamentosView(this, true);
-        tela.setVisible(true);
+        
     }//GEN-LAST:event_btnListarEstacionamentosActionPerformed
 
     private void btnHistoricoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoClienteActionPerformed
-        PerguntaCpfView tlm = new PerguntaCpfView(this, true);
-        tlm.getBtnVoltar().addActionListener(evento -> {
-            tlm.dispose();
-        });
-        tlm.getBtnProsseguir().addActionListener(evento -> {
-        tlm.dispose();
-        HistoricoClienteView tela = new HistoricoClienteView(this, true);
-        tela.setVisible(true);
-        });
-        tlm.setVisible(true);
+
     }//GEN-LAST:event_btnHistoricoClienteActionPerformed
 
     private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed

@@ -1,18 +1,20 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Vaga {
+public class Vaga implements Serializable{
     private static int proxId = 1;
     private String identificador;
     private boolean disponibilidade;
     private ArrayList<UsoDaVaga> usoDaVaga;
     private static double valorPor15Min = 4;
     private static double valorLimite = 50;
+    private static final long serialVersionUID = 1L;
 
     public Vaga(String identificador, boolean disponibilidade) {
-        this.identificador = "V" + this.getProxId();
+        this.identificador = identificador + this.getProxId();
         this.disponibilidade = disponibilidade;
         this.usoDaVaga = new ArrayList<>();
     }
@@ -55,5 +57,24 @@ public class Vaga {
 
     public double calcularPrecoVaga(double valorParcial) {
         return valorParcial;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Vaga { ")
+          .append("Identificador: '").append(identificador).append("', ")
+          .append("Disponibilidade: ").append(disponibilidade).append(", ")
+          .append("UsoDaVaga: [");
+
+        for (int i = 0; i < usoDaVaga.size(); i++) {
+            sb.append(usoDaVaga.get(i));
+            if (i < usoDaVaga.size() - 1) {
+                sb.append(", ");
+            }
+        }
+
+        sb.append("] }");
+        return sb.toString();
     }
 }

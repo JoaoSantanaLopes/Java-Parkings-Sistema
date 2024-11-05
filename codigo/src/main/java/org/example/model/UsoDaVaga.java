@@ -1,21 +1,21 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.Duration;
 
-public class UsoDaVaga {
+public class UsoDaVaga implements Serializable{
     
     private static int proxId = 1;
     private int id;
     private final LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
-    private Veiculo veiculo;
     private Cliente cliente;
     private Vaga vaga;
+    private static final long serialVersionUID = 1L;
 
-    public UsoDaVaga(Veiculo veiculo, Vaga vaga, Cliente cliente) {
+    public UsoDaVaga(Vaga vaga, Cliente cliente) {
         this.dataHoraEntrada = LocalDateTime.now();
-        this.veiculo =  veiculo;
         this.vaga = vaga;
         this.cliente = cliente;
         this.id = getProxId();
@@ -41,14 +41,6 @@ public class UsoDaVaga {
         return this.cliente;
     }
 
-    public Veiculo getVeiculo() {
-        return this.veiculo;
-    }
-
-    public void setVeiculo(Veiculo carro) {
-        this.veiculo = carro;
-    }
-
     private long calcularTempoEstadia() {
         long segundos = Duration.between(this.dataHoraEntrada, this.dataHoraSaida).getSeconds();
         long minutos = segundos/60;
@@ -71,6 +63,15 @@ public class UsoDaVaga {
         if(valor > Vaga.getValorLimite()) {
             return vaga.calcularPrecoVaga(Vaga.getValorLimite());
         }
-        return vaga.calcularPrecoVaga(valor);
+        return vaga.calcularPrecoVaga(valor); 
+    }
+     @Override
+    public String toString() {
+        return "UsoDaVaga { " +
+               "ID: " + id +
+               ", Data e Hora de Entrada: " + dataHoraEntrada +
+               ", Data e Hora de Saída: " + (dataHoraSaida != null ? dataHoraSaida : "Ainda em uso") +
+               ", Cliente: " + cliente +
+               " }";
     }
 }
