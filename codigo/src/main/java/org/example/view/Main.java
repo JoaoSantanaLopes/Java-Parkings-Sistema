@@ -12,9 +12,9 @@ public class Main {
 
     public static void main(String[] args){
         
-        //MainController incia = new MainController();
+        MainController incia = new MainController();
         Estacionamentos teste = Estacionamentos.getInstancia();
-        Estacionamento obj = teste.pesquisarEstacionamento("teste");
+        Estacionamento obj = teste.pesquisarEstacionamento("teste2");
         System.out.println(obj);
     }
 }

@@ -38,11 +38,11 @@ public class MainController {
         });
         
         view.getBtnLiberarVaga().addActionListener(e ->{
-            
+            LiberarVagaController f = new LiberarVagaController();
         });
         
         view.getBtnListarEstacionamentos().addActionListener(e ->{
-            
+            ListarEstacionamentosController g = new ListarEstacionamentosController();
         });
         
         view.getBtnValores().addActionListener(e ->{

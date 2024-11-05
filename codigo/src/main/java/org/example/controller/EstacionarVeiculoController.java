@@ -29,7 +29,7 @@ public class EstacionarVeiculoController {
         this.view = new EstacionarVeiculoView(new javax.swing.JFrame(), true);
         
         this.clientes = Clientes.getInstancia();
-        this.estacionamentos = estacionamentos.getInstancia();
+        this.estacionamentos = Estacionamentos.getInstancia();
         
         view.getBtnVoltar().addActionListener(e -> {
             view.dispose();

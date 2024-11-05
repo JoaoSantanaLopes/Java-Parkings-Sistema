@@ -71,6 +71,11 @@ public class Estacionamento implements Serializable{
         vagaDestino.addUsoVaga(novoUsoVaga);
         vagaDestino.setDisponibilidade(false);
 }
+    
+    public void liberarVaga(String vaga) {
+        Vaga vagaLiberada = vagas.get(vaga);
+        vagaLiberada.setDisponibilidade(true);
+    }
 
     
     @Override

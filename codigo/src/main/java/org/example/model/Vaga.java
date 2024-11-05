@@ -50,6 +50,10 @@ public class Vaga implements Serializable{
     public ArrayList<UsoDaVaga> getUsoDaVaga() {
         return usoDaVaga;
     }
+    
+    public UsoDaVaga getUltimo() {
+        return usoDaVaga.get(usoDaVaga.size() - 1);
+    }
 
     public void addUsoVaga(UsoDaVaga novoUso) {
         this.usoDaVaga.add(novoUso);
@@ -77,4 +81,5 @@ public class Vaga implements Serializable{
         sb.append("] }");
         return sb.toString();
     }
+
 }

@@ -44,11 +44,11 @@ public class ListarEstacionamentosView extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nome", "Endereço", "vagas normais", "vagas idoso ", "vagas PCD", "vagas VIP"
+                "Nome", "Endereço", "Vagas"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -60,9 +60,6 @@ public class ListarEstacionamentosView extends javax.swing.JDialog {
             tabelaEstacionamentos.getColumnModel().getColumn(0).setResizable(false);
             tabelaEstacionamentos.getColumnModel().getColumn(1).setResizable(false);
             tabelaEstacionamentos.getColumnModel().getColumn(2).setResizable(false);
-            tabelaEstacionamentos.getColumnModel().getColumn(3).setResizable(false);
-            tabelaEstacionamentos.getColumnModel().getColumn(4).setResizable(false);
-            tabelaEstacionamentos.getColumnModel().getColumn(5).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

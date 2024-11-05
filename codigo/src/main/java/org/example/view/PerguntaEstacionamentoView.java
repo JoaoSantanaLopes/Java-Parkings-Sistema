@@ -58,6 +58,11 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
         btnVoltar.setText("Voltar");
 
         btnProsseguir.setText("Prosseguir");
+        btnProsseguir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProsseguirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +96,10 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnProsseguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsseguirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProsseguirActionPerformed
 
     /**
      * @param args the command line arguments

@@ -28,7 +28,7 @@ public class Veiculo implements Serializable{
 
     @Override
     public String toString() {
-        return "Veículo { " +
+        return "Veiculo { " +
                "Placa: '" + placa + '\'' +
                ", Modelo: '" + modelo + '\'' +
                ", Marca: '" + marca + '\'' +

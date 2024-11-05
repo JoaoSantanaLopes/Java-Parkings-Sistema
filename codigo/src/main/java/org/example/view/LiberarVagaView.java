@@ -5,6 +5,7 @@
 package org.example.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -135,12 +136,11 @@ public class LiberarVagaView extends javax.swing.JDialog {
     }//GEN-LAST:event_nomeActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnLiberarVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiberarVagaActionPerformed
-        this.dispose();
-        JOptionPane.showMessageDialog(null, "Vaga liberada! Valor a ser pago: R$ (variável)");
+
     }//GEN-LAST:event_btnLiberarVagaActionPerformed
 
     /**
@@ -196,12 +196,12 @@ public class LiberarVagaView extends javax.swing.JDialog {
     private javax.swing.JTextField nome;
     // End of variables declaration//GEN-END:variables
 
-    public String getNome() {
-    return nome.getText();
+    public JTextField getNome() {
+    return nome;
     }
 
-    public String getIndentificadorVaga() {
-    return indentificadorVaga.getText();
+    public JTextField getIndentificadorVaga() {
+    return indentificadorVaga;
     }
     
     public javax.swing.JButton getBtnLiberarVaga() {

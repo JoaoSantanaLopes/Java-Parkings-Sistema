@@ -57,14 +57,7 @@ public class UsoDaVaga implements Serializable{
         return vaga.calcularPrecoVaga(valor);
     }
 
-    public double calcularPrecoEstadia() {
-        long tempo = calcularTempoEstadia();
-        double valor = Vaga.getValorPor15Min() * (tempo / 15);
-        if(valor > Vaga.getValorLimite()) {
-            return vaga.calcularPrecoVaga(Vaga.getValorLimite());
-        }
-        return vaga.calcularPrecoVaga(valor); 
-    }
+
      @Override
     public String toString() {
         return "UsoDaVaga { " +

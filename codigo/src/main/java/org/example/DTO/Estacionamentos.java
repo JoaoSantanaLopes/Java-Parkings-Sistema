@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.example.model.Estacionamento;
 import org.example.model.Vaga;
+import org.example.model.UsoDaVaga;
 
 /**
  *
@@ -44,7 +45,7 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
         this.estacionamentos = (ArrayList<Estacionamento>) obj;
     }
      
-    public ArrayList getEstacionamentos(){
+    public ArrayList<Estacionamento> getEstacionamentos(){
         return this.estacionamentos;
     }
     
