@@ -70,7 +70,7 @@ public class UsoDaVaga implements Serializable{
         return "UsoDaVaga { " +
                "ID: " + id +
                ", Data e Hora de Entrada: " + dataHoraEntrada +
-               ", Data e Hora de Saída: " + (dataHoraSaida != null ? dataHoraSaida : "Ainda em uso") +
+               ", Data e Hora de Saida: " + (dataHoraSaida != null ? dataHoraSaida : "Ainda em uso") +
                ", Cliente: " + cliente +
                " }";
     }

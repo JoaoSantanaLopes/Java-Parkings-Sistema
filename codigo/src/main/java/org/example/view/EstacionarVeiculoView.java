@@ -5,6 +5,7 @@
 package org.example.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -207,12 +208,11 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnEstacionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionarActionPerformed
-        this.dispose();
-        JOptionPane.showMessageDialog(null, "Veículo Estacionado!");
+
     }//GEN-LAST:event_btnEstacionarActionPerformed
 
     private void nomeEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeEstacionamentoActionPerformed
@@ -284,21 +284,20 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
     private javax.swing.JTextField placa;
     // End of variables declaration//GEN-END:variables
 
-    public String getNomeEstacionamento() {
-    return nomeEstacionamento.getText();
+    public JTextField getNomeEstacionamento() {
+    return nomeEstacionamento;
 }
 
-    public String getIdentificadorVaga() {
-    return identificadorVaga.getText();
+    public JTextField getIdentificadorVaga() {
+    return identificadorVaga;
     }
 
-    public String getCpf() {
-    //isso tira os trem que não é numero
-    return cpf.getText().replaceAll("[^\\d]", ""); 
+    public JTextField getCpf() {
+    return cpf; 
     }
 
-    public String getPlaca() {
-    return placa.getText();
+    public JTextField getPlaca() {
+    return placa;
     }
 
     public javax.swing.JButton getBtnEstacionar() {

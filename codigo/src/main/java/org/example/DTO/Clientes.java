@@ -51,7 +51,6 @@ public class Clientes extends AbstractDAO implements Serializable {
     
     public Cliente pesquisarCliente(String cpf){
         for (Cliente obj : clientes) {
-            System.out.print(obj);
             if(obj.getCpf().equalsIgnoreCase(cpf))
                 return obj;
         }

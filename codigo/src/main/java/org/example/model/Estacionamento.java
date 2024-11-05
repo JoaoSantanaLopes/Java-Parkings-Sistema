@@ -1,6 +1,7 @@
 package org.example.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Collection;
 
@@ -50,9 +51,9 @@ public class Estacionamento implements Serializable{
 
     
 
-    public Vaga[] getVagas() {
-        Collection<Vaga> values = vagas.values();
-        return values.toArray(new Vaga[0]);
+    public ArrayList<Vaga> getVagas() {
+        ArrayList<Vaga> vagas = new ArrayList<>(this.vagas.values());
+        return vagas;
     }
 
     public void adicionarVaga(String codigo, Vaga novaVaga) {
@@ -65,10 +66,12 @@ public class Estacionamento implements Serializable{
     }
 
     public void estacionarVeiculo(String vaga, Veiculo veiculo, Cliente cliente) {
-        Vaga vagaDestino = vagas.get(vaga);
+    Vaga vagaDestino = vagas.get(vaga);
         UsoDaVaga novoUsoVaga = new UsoDaVaga(vagaDestino, cliente);
         vagaDestino.addUsoVaga(novoUsoVaga);
-    }
+        vagaDestino.setDisponibilidade(false);
+}
+
     
     @Override
     public String toString() {
@@ -77,12 +80,12 @@ public class Estacionamento implements Serializable{
           .append("Nome: '").append(nome).append("', ")
           .append("Rua: '").append(rua).append("', ")
           .append("Bairro: '").append(bairro).append("', ")
-          .append("Número: ").append(numero).append(", ")
+          .append("Numero: ").append(numero).append(", ")
           .append("Vagas: {");
 
         for (Map.Entry<String, Vaga> entry : vagas.entrySet()) {
             sb.append("\n    ")
-              .append("Código: '").append(entry.getKey()).append("', ")
+              .append("Codigo: '").append(entry.getKey()).append("', ")
               .append("Detalhes da Vaga: ").append(entry.getValue());
         }
 

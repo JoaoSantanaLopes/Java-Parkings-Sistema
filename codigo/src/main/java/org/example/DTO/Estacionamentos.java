@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.example.model.Estacionamento;
+import org.example.model.Vaga;
 
 /**
  *
@@ -51,6 +52,17 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
         for (Estacionamento obj : estacionamentos) {
             if(obj.getNome().equalsIgnoreCase(nome))
                 return obj;
+        }
+        return null;
+    }
+    
+    public Vaga pesquisarVagaEstacionamento(String identificador){
+        for (Estacionamento obj : estacionamentos) {
+            ArrayList<Vaga> vagas = obj.getVagas();
+            for(Vaga newobj : vagas) {
+                if(newobj.getIdentificador().equalsIgnoreCase(identificador))
+                    return newobj;
+            }
         }
         return null;
     }

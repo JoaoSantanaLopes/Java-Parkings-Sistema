@@ -30,7 +30,7 @@ public class MainController {
         });
         
         view.getBtnEstacionarVeiculo().addActionListener(e ->{
-            
+            EstacionarVeiculoController d = new EstacionarVeiculoController();
         });
         
         view.getBtnHistoricoCliente().addActionListener(e ->{
