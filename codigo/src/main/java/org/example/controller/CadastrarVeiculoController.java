@@ -26,6 +26,12 @@ public class CadastrarVeiculoController {
         
         this.view = new PerguntaCpfVeiculoView();
         tela.add(view);
+        
+        //essa codigo gera a tela no meio
+        int x = (tela.getWidth() - view.getWidth()) / 2;
+        int y = (tela.getHeight() - view.getHeight()) / 2;
+        view.setLocation(x, y);
+        
         this.clientes = Clientes.getInstancia();
         
         view.getBtnVoltar().addActionListener(e -> {
@@ -49,6 +55,12 @@ public class CadastrarVeiculoController {
             view.dispose();
             this.cadastro = new CadastrarVeiculoView();
             tela.add(cadastro);
+            
+            //essa codigo gera a tela no meio
+            int x = (tela.getWidth() - cadastro.getWidth()) / 2;
+            int y = (tela.getHeight() - cadastro.getHeight()) / 2;
+            view.setLocation(x, y);
+            
             cadastro.getBtnVoltar().addActionListener(e -> {
             cadastro.dispose();
             });

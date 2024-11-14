@@ -15,6 +15,12 @@ public class CadastrarEstacionamentoController {
         
         this.view = new CadastrarEstacionamentoView();
         tela.add(view);
+        
+        //essa codigo gera a tela no meio
+        int x = (tela.getWidth() - view.getWidth()) / 2;
+        int y = (tela.getHeight() - view.getHeight()) / 2;
+        view.setLocation(x, y);
+        
         this.estacionamentos = Estacionamentos.getInstancia();
         
         this.view.getBtnCadastrar().addActionListener((e)->{
