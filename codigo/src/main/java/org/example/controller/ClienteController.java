@@ -12,10 +12,10 @@ public class ClienteController {
     private Clientes clientes;
     private final String endereço = "clientes.txt";
     
-    public ClienteController() {
+    public ClienteController(javax.swing.JDesktopPane tela) {
         
-        this.view = new CadastrarClienteView(new javax.swing.JFrame(), true);
-
+        this.view = new CadastrarClienteView();
+        tela.add(view);
         this.clientes = Clientes.getInstancia();
         
         this.view.getBtnCadastrar().addActionListener((e)->{

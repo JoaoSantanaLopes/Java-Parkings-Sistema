@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package org.example.view;
 
@@ -8,13 +8,12 @@ package org.example.view;
  *
  * @author Joao
  */
-public class PerguntaEstacionamentoView extends javax.swing.JDialog {
+public class PerguntaEstacionamentoView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form PerguntaEstacionamento
+     * Creates new form PerguntaEstacionamentoViwe
      */
-    public PerguntaEstacionamentoView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public PerguntaEstacionamentoView() {
         initComponents();
     }
 
@@ -32,9 +31,9 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
         btnVoltar = new javax.swing.JButton();
         btnProsseguir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nome");
-        setResizable(false);
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Pergunta do Estacionamento");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome do Estacionamento "));
 
@@ -77,7 +76,7 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                         .addComponent(btnProsseguir)
                         .addGap(12, 12, 12))))
         );
@@ -94,55 +93,12 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProsseguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsseguirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProsseguirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PerguntaEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PerguntaEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PerguntaEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PerguntaEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PerguntaEstacionamentoView dialog = new PerguntaEstacionamentoView(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProsseguir;
@@ -151,7 +107,7 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
     private javax.swing.JTextField nomeEstacionamento;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JButton getBtnProsseguir() {
+     public javax.swing.JButton getBtnProsseguir() {
         return btnProsseguir;
     }
 
@@ -162,6 +118,5 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
     public String getNomeEstacionamento() {
         return nomeEstacionamento.getText();
     }
-
 
 }

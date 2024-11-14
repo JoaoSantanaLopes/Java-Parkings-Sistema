@@ -22,10 +22,10 @@ public class CadastrarVeiculoController {
     private CadastrarVeiculoView cadastro;
     private final String endereço = "clientes.txt";
 
-    public CadastrarVeiculoController() {
+    public CadastrarVeiculoController(javax.swing.JDesktopPane tela) {
         
-        this.view = new PerguntaCpfVeiculoView(new javax.swing.JFrame(), true);
-        
+        this.view = new PerguntaCpfVeiculoView();
+        tela.add(view);
         this.clientes = Clientes.getInstancia();
         
         view.getBtnVoltar().addActionListener(e -> {
@@ -33,13 +33,13 @@ public class CadastrarVeiculoController {
         });
         
         view.getBtnProsseguir().addActionListener(e -> {
-            ProcurarPessoa();
+            ProcurarPessoa(tela); 
         });
         
         this.view.setVisible(true);
     }
     
-    private void ProcurarPessoa(){
+    private void ProcurarPessoa(javax.swing.JDesktopPane tela){
         String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
         Cliente obj = clientes.pesquisarCliente(cpf);
         if(obj == null) {
@@ -47,9 +47,16 @@ public class CadastrarVeiculoController {
         }
         else {
             view.dispose();
-            this.cadastro = new CadastrarVeiculoView(new javax.swing.JFrame(), true);
-            this.cadastro.setVisible(true);
+            this.cadastro = new CadastrarVeiculoView();
+            tela.add(cadastro);
+            cadastro.getBtnVoltar().addActionListener(e -> {
+            cadastro.dispose();
+            });
+            cadastro.getBtnCadastrar().addActionListener(e -> {
             AdicionarCarro(obj);
+            cadastro.dispose();
+            });
+            this.cadastro.setVisible(true);
         }
     }
     

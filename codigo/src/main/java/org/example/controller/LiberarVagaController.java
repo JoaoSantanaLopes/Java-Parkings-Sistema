@@ -10,7 +10,7 @@ import org.example.DTO.Estacionamentos;
 import org.example.model.Estacionamento;
 import org.example.model.UsoDaVaga;
 import org.example.model.Vaga;
-import org.example.view.LiberarVagaView;
+import org.example.view.*;
 
 /**
  *
@@ -22,11 +22,10 @@ public class LiberarVagaController {
     private LiberarVagaView view;
     private final String endereco = "estacionamentos.txt";
 
-    public LiberarVagaController() {
+    public LiberarVagaController(javax.swing.JDesktopPane tela) {
         
-        view = new LiberarVagaView(new javax.swing.JFrame(), true);
-        
-              
+        view = new LiberarVagaView();
+        tela.add(view);    
         this.clientes = Clientes.getInstancia();
         this.estacionamentos = Estacionamentos.getInstancia();
         

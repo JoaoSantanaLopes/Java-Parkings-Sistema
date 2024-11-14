@@ -11,9 +11,10 @@ public class CadastrarEstacionamentoController {
     private Estacionamentos estacionamentos;
     private final String endereco = "estacionamentos.txt";
 
-    public CadastrarEstacionamentoController() {
+    public CadastrarEstacionamentoController(javax.swing.JDesktopPane tela) {
         
-        this.view = new CadastrarEstacionamentoView(new javax.swing.JFrame(), true);
+        this.view = new CadastrarEstacionamentoView();
+        tela.add(view);
         this.estacionamentos = Estacionamentos.getInstancia();
         
         this.view.getBtnCadastrar().addActionListener((e)->{

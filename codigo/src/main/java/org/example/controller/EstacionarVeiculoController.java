@@ -24,10 +24,10 @@ public class EstacionarVeiculoController {
     private EstacionarVeiculoView view;
     private final String endereco = "estacionamentos.txt";
     
-    public EstacionarVeiculoController() {
+    public EstacionarVeiculoController(javax.swing.JDesktopPane tela) {
         
-        this.view = new EstacionarVeiculoView(new javax.swing.JFrame(), true);
-        
+        this.view = new EstacionarVeiculoView();
+        tela.add(view);
         this.clientes = Clientes.getInstancia();
         this.estacionamentos = Estacionamentos.getInstancia();
         

@@ -18,10 +18,10 @@ public class ListarEstacionamentosController {
      private Estacionamentos estacionamentos;
         private ListarEstacionamentosView view;
 
-        public ListarEstacionamentosController() {
+        public ListarEstacionamentosController(javax.swing.JDesktopPane tela) {
 
-        this.view = new ListarEstacionamentosView(new javax.swing.JFrame(), true);
-
+        this.view = new ListarEstacionamentosView();
+        tela.add(view);
         this.estacionamentos = estacionamentos.getInstancia();
 
         view.getBtnVoltar().addActionListener(e -> {
