@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package org.example.view;
 
@@ -8,13 +8,12 @@ package org.example.view;
  *
  * @author Joao
  */
-public class PerguntaEstacionamentoView extends javax.swing.JDialog {
+public class PerguntaEstacionamentoView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form PerguntaEstacionamento
+     * Creates new form PerguntaEstacionamentoViwe
      */
-    public PerguntaEstacionamentoView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public PerguntaEstacionamentoView() {
         initComponents();
     }
 
@@ -32,9 +31,9 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
         btnVoltar = new javax.swing.JButton();
         btnProsseguir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nome");
-        setResizable(false);
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Pergunta do Estacionamento");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome do Estacionamento "));
 
@@ -77,7 +76,7 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                         .addComponent(btnProsseguir)
                         .addGap(12, 12, 12))))
         );
@@ -94,7 +93,6 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProsseguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsseguirActionPerformed
@@ -109,7 +107,7 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
     private javax.swing.JTextField nomeEstacionamento;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JButton getBtnProsseguir() {
+     public javax.swing.JButton getBtnProsseguir() {
         return btnProsseguir;
     }
 
@@ -120,6 +118,5 @@ public class PerguntaEstacionamentoView extends javax.swing.JDialog {
     public String getNomeEstacionamento() {
         return nomeEstacionamento.getText();
     }
-
 
 }

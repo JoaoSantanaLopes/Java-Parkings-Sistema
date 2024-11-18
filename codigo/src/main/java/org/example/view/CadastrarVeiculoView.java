@@ -1,22 +1,19 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package org.example.view;
-
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Joao
  */
-public class CadastrarVeiculoView extends javax.swing.JDialog {
+public class CadastrarVeiculoView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form CadastrarVeiculoView
+     * Creates new form CadastrarVeiculoView1
      */
-    public CadastrarVeiculoView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public CadastrarVeiculoView() {
         initComponents();
     }
 
@@ -29,8 +26,6 @@ public class CadastrarVeiculoView extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        telefone = new javax.swing.JFormattedTextField();
-        cpf = new javax.swing.JFormattedTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,21 +37,9 @@ public class CadastrarVeiculoView extends javax.swing.JDialog {
         btnCadastrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
-        try {
-            telefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) 9 ####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            cpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-###-###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastra Veículo");
-        setResizable(false);
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Cadastro de veículo");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do Veículo"));
 
@@ -168,68 +151,24 @@ public class CadastrarVeiculoView extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        this.dispose();
-        JOptionPane.showMessageDialog(null, "Veículo Cadastrado!");
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void placaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_placaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_placaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                CadastrarVeiculoView dialog = new CadastrarVeiculoView(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JFormattedTextField cpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -238,7 +177,6 @@ public class CadastrarVeiculoView extends javax.swing.JDialog {
     private javax.swing.JTextField marca;
     private javax.swing.JTextField modelo;
     private javax.swing.JTextField placa;
-    private javax.swing.JFormattedTextField telefone;
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JButton getBtnVoltar() {
@@ -260,4 +198,5 @@ public class CadastrarVeiculoView extends javax.swing.JDialog {
     public javax.swing.JTextField getMarca() {
         return this.marca;
     }
+
 }

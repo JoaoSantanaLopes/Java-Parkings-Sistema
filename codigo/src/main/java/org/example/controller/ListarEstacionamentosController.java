@@ -18,10 +18,16 @@ public class ListarEstacionamentosController {
      private Estacionamentos estacionamentos;
         private ListarEstacionamentosView view;
 
-        public ListarEstacionamentosController() {
+        public ListarEstacionamentosController(javax.swing.JDesktopPane tela) {
 
-        this.view = new ListarEstacionamentosView(new javax.swing.JFrame(), true);
-
+        this.view = new ListarEstacionamentosView();
+        tela.add(view);
+        
+        //essa codigo gera a tela no meio
+        int x = (tela.getWidth() - view.getWidth()) / 2;
+        int y = (tela.getHeight() - view.getHeight()) / 2;
+        view.setLocation(x, y);
+        
         this.estacionamentos = estacionamentos.getInstancia();
 
         view.getBtnVoltar().addActionListener(e -> {

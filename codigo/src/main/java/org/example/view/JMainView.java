@@ -4,6 +4,8 @@
  */
 package org.example.view;
 
+import org.example.controller.ClienteController;
+
 /**
  *
  * @author Joao
@@ -11,7 +13,7 @@ package org.example.view;
 public class JMainView extends javax.swing.JFrame {
 
     /**
-     * Creates new form JMain
+     * Creates new form JmainView2
      */
     public JMainView() {
         initComponents();
@@ -27,125 +29,129 @@ public class JMainView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        tela = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
-        btnHistoricoCliente = new javax.swing.JButton();
-        btnValores = new javax.swing.JButton();
-        btnListarEstacionamentos = new javax.swing.JButton();
-        btnLiberarVaga = new javax.swing.JButton();
-        btnEstacionarVeiculo = new javax.swing.JButton();
-        btnCadastrarCliente = new javax.swing.JButton();
-        btnCadastrarEstacionamento = new javax.swing.JButton();
-        btnCadastrarVeiculo = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuControlarEstacionamentos = new javax.swing.JMenu();
+        menuCadastrarEstacionamentos = new javax.swing.JMenuItem();
+        menuListarEstacionamentos = new javax.swing.JMenuItem();
+        menuValores = new javax.swing.JMenuItem();
+        menuEstacionarVeiculo = new javax.swing.JMenuItem();
+        menuLiberarVaga = new javax.swing.JMenuItem();
+        menuControlarClientes = new javax.swing.JMenu();
+        menuCadastrarClientes = new javax.swing.JMenuItem();
+        menuHistoricoCliente = new javax.swing.JMenuItem();
+        menuCadastrarVeiculo = new javax.swing.JMenuItem();
+        menuSobre = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menu");
+        setTitle("Tela principal");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Estacionamento Java Parkings");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setText("Bem Vindo Usuário!");
 
-        btnHistoricoCliente.setText("Histórico cliente");
-        btnHistoricoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHistoricoClienteActionPerformed(evt);
-            }
-        });
+        tela.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnValores.setText("Valores");
-        btnValores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnValoresActionPerformed(evt);
-            }
-        });
-
-        btnListarEstacionamentos.setText("Listar estacionamentos");
-        btnListarEstacionamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarEstacionamentosActionPerformed(evt);
-            }
-        });
-
-        btnLiberarVaga.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnLiberarVaga.setText("Liberar vaga");
-        btnLiberarVaga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLiberarVagaActionPerformed(evt);
-            }
-        });
-
-        btnEstacionarVeiculo.setText("Estacionar veículo");
-        btnEstacionarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstacionarVeiculoActionPerformed(evt);
-            }
-        });
-
-        btnCadastrarCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnCadastrarCliente.setText("Cadastrar cliente");
-        btnCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarClienteActionPerformed(evt);
-            }
-        });
-
-        btnCadastrarEstacionamento.setText("Cadastrar estacionamento");
-        btnCadastrarEstacionamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarEstacionamentoActionPerformed(evt);
-            }
-        });
-
-        btnCadastrarVeiculo.setText("Cadastrar veículo");
-        btnCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarVeiculoActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout telaLayout = new javax.swing.GroupLayout(tela);
+        tela.setLayout(telaLayout);
+        telaLayout.setHorizontalGroup(
+            telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jLabel1)
+                .addContainerGap(164, Short.MAX_VALUE))
+        );
+        telaLayout.setVerticalGroup(
+            telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(telaLayout.createSequentialGroup()
+                .addGap(201, 201, 201)
+                .addComponent(jLabel1)
+                .addContainerGap(288, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(84, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnValores, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(btnHistoricoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(btnEstacionarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(btnLiberarVaga, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(btnCadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(btnListarEstacionamentos, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(btnCadastrarEstacionamento, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(tela)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrarEstacionamento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnLiberarVaga, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEstacionarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnListarEstacionamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnHistoricoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnValores, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addComponent(tela, javax.swing.GroupLayout.Alignment.TRAILING)
         );
+
+        menuControlarEstacionamentos.setText("Controlar Estacionamentos");
+        menuControlarEstacionamentos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuControlarEstacionamentosMouseClicked(evt);
+            }
+        });
+        menuControlarEstacionamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuControlarEstacionamentosActionPerformed(evt);
+            }
+        });
+
+        menuCadastrarEstacionamentos.setText("Cadastrar estacionamentos");
+        menuCadastrarEstacionamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastrarEstacionamentosActionPerformed(evt);
+            }
+        });
+        menuControlarEstacionamentos.add(menuCadastrarEstacionamentos);
+
+        menuListarEstacionamentos.setText("Listar estacionamentos");
+        menuListarEstacionamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuListarEstacionamentosActionPerformed(evt);
+            }
+        });
+        menuControlarEstacionamentos.add(menuListarEstacionamentos);
+
+        menuValores.setText("Valores");
+        menuControlarEstacionamentos.add(menuValores);
+
+        menuEstacionarVeiculo.setText("Estacionar veículo");
+        menuEstacionarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEstacionarVeiculoActionPerformed(evt);
+            }
+        });
+        menuControlarEstacionamentos.add(menuEstacionarVeiculo);
+
+        menuLiberarVaga.setText("Liberar vaga");
+        menuControlarEstacionamentos.add(menuLiberarVaga);
+
+        jMenuBar1.add(menuControlarEstacionamentos);
+
+        menuControlarClientes.setText("Controlar clientes");
+
+        menuCadastrarClientes.setText("Cadastrar clientes");
+        menuControlarClientes.add(menuCadastrarClientes);
+
+        menuHistoricoCliente.setText("Histórico cliente");
+        menuControlarClientes.add(menuHistoricoCliente);
+
+        menuCadastrarVeiculo.setText("Cadastrar veículo");
+        menuCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastrarVeiculoActionPerformed(evt);
+            }
+        });
+        menuControlarClientes.add(menuCadastrarVeiculo);
+
+        jMenuBar1.add(menuControlarClientes);
+
+        menuSobre.setText("Sobre");
+
+        jMenuItem5.setText("Sobre nós");
+        menuSobre.add(jMenuItem5);
+
+        jMenuBar1.add(menuSobre);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,44 +161,38 @@ public class JMainView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnValoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoresActionPerformed
-
-    }//GEN-LAST:event_btnValoresActionPerformed
-
-    private void btnCadastrarEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarEstacionamentoActionPerformed
-
-    }//GEN-LAST:event_btnCadastrarEstacionamentoActionPerformed
-
-    private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-
-    }//GEN-LAST:event_btnCadastrarClienteActionPerformed
-
-    private void btnLiberarVagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiberarVagaActionPerformed
-    
-    }//GEN-LAST:event_btnLiberarVagaActionPerformed
-
-    private void btnEstacionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionarVeiculoActionPerformed
+    private void menuControlarEstacionamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuControlarEstacionamentosActionPerformed
      
-    }//GEN-LAST:event_btnEstacionarVeiculoActionPerformed
+    }//GEN-LAST:event_menuControlarEstacionamentosActionPerformed
 
-    private void btnListarEstacionamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEstacionamentosActionPerformed
-        
-    }//GEN-LAST:event_btnListarEstacionamentosActionPerformed
+    private void menuControlarEstacionamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuControlarEstacionamentosMouseClicked
+        //CadastrarClienteView aaaaa = new CadastrarClienteView();
+        // tela.add(aaaaa);
+        // aaaaa.setVisible(true);
+    }//GEN-LAST:event_menuControlarEstacionamentosMouseClicked
 
-    private void btnHistoricoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoClienteActionPerformed
+    private void menuCadastrarEstacionamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarEstacionamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuCadastrarEstacionamentosActionPerformed
 
-    }//GEN-LAST:event_btnHistoricoClienteActionPerformed
+    private void menuCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastrarVeiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuCadastrarVeiculoActionPerformed
 
-    private void btnCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarVeiculoActionPerformed
-        
-    }//GEN-LAST:event_btnCadastrarVeiculoActionPerformed
+    private void menuEstacionarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEstacionarVeiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuEstacionarVeiculoActionPerformed
+
+    private void menuListarEstacionamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListarEstacionamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuListarEstacionamentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +205,7 @@ public class JMainView extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -221,6 +221,20 @@ public class JMainView extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -231,47 +245,58 @@ public class JMainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrarCliente;
-    private javax.swing.JButton btnCadastrarEstacionamento;
-    private javax.swing.JButton btnCadastrarVeiculo;
-    private javax.swing.JButton btnEstacionarVeiculo;
-    private javax.swing.JButton btnHistoricoCliente;
-    private javax.swing.JButton btnLiberarVaga;
-    private javax.swing.JButton btnListarEstacionamentos;
-    private javax.swing.JButton btnValores;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem menuCadastrarClientes;
+    private javax.swing.JMenuItem menuCadastrarEstacionamentos;
+    private javax.swing.JMenuItem menuCadastrarVeiculo;
+    private javax.swing.JMenu menuControlarClientes;
+    private javax.swing.JMenu menuControlarEstacionamentos;
+    private javax.swing.JMenuItem menuEstacionarVeiculo;
+    private javax.swing.JMenuItem menuHistoricoCliente;
+    private javax.swing.JMenuItem menuLiberarVaga;
+    private javax.swing.JMenuItem menuListarEstacionamentos;
+    private javax.swing.JMenu menuSobre;
+    private javax.swing.JMenuItem menuValores;
+    private javax.swing.JDesktopPane tela;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JButton getBtnCadastrarCliente() {
-    return btnCadastrarCliente;
+    public javax.swing.JMenuItem getMenuCadastrarCliente() {
+    return menuCadastrarClientes;
     }
     
-    public javax.swing.JButton getBtnCadastrarVeiculo() {
-        return btnCadastrarVeiculo;
+    public javax.swing.JMenuItem getMenuCadastrarVeiculo() {
+        return menuCadastrarVeiculo;
     }
 
-    public javax.swing.JButton getBtnCadastrarEstacionamento() {
-    return btnCadastrarEstacionamento;
+    public javax.swing.JMenuItem getMenuCadastrarEstacionamento() {
+    return menuCadastrarEstacionamentos;
     }
 
-    public javax.swing.JButton getBtnEstacionarVeiculo() {
-    return btnEstacionarVeiculo;
+    public javax.swing.JMenuItem getMenuEstacionarVeiculo() {
+    return menuEstacionarVeiculo;
     }
 
-    public javax.swing.JButton getBtnHistoricoCliente() {
-    return btnHistoricoCliente;
+    public javax.swing.JMenuItem getMenuHistoricoCliente() {
+    return menuHistoricoCliente;
     }
 
-    public javax.swing.JButton getBtnLiberarVaga() {
-    return btnLiberarVaga;
+    public javax.swing.JMenuItem getMenuLiberarVaga() {
+    return menuLiberarVaga;
     }
 
-    public javax.swing.JButton getBtnListarEstacionamentos() {
-    return btnListarEstacionamentos;
+    public javax.swing.JMenuItem getMenuListarEstacionamentos() {
+    return menuListarEstacionamentos;
     }
 
-    public javax.swing.JButton getBtnValores() {
-    return btnValores;
+    public javax.swing.JMenuItem getMenuValores() {
+    return menuValores;
+    }
+    public javax.swing.JDesktopPane getTela() {
+        return tela;
     }
 }
+
+

@@ -1,23 +1,21 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package org.example.view;
 
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Joao
  */
-public class EstacionarVeiculoView extends javax.swing.JDialog {
+public class EstacionarVeiculoView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form EstacionarVeículo
+     * Creates new form EstacionarVeiculoView2
      */
-    public EstacionarVeiculoView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public EstacionarVeiculoView() {
         initComponents();
     }
 
@@ -44,9 +42,9 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
         btnEstacionar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Estaciona Veículo");
-        setResizable(false);
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Estacionar veículo");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do Estacionamento e Cliente"));
 
@@ -204,16 +202,7 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-
-    }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnEstacionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionarActionPerformed
-
-    }//GEN-LAST:event_btnEstacionarActionPerformed
 
     private void nomeEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeEstacionamentoActionPerformed
         // TODO add your handling code here:
@@ -223,50 +212,14 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_identificadorVagaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EstacionarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EstacionarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EstacionarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EstacionarVeiculoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void btnEstacionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstacionarActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                EstacionarVeiculoView dialog = new EstacionarVeiculoView(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnEstacionarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEstacionar;
@@ -307,4 +260,5 @@ public class EstacionarVeiculoView extends javax.swing.JDialog {
     public javax.swing.JButton getBtnVoltar() {
     return btnVoltar;
     }
+
 }

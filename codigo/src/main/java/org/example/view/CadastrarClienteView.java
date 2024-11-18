@@ -1,30 +1,23 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package org.example.view;
 
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Joao
  */
-public class CadastrarClienteView extends javax.swing.JDialog {
+public class CadastrarClienteView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form CadastrarCliente
+     * Creates new form CadastrarClienteView2
      */
-    
-    public CadastrarClienteView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public CadastrarClienteView() {
         initComponents();
     }
-
-    //public CadastrarCliente() {
-   //     throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,9 +39,9 @@ public class CadastrarClienteView extends javax.swing.JDialog {
         btnCadastrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro Cliente");
-        setResizable(false);
+        setClosable(true);
+        setIconifiable(true);
+        setTitle("Cadastro de cliente");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do Cliente"));
 
@@ -86,7 +79,7 @@ public class CadastrarClienteView extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(cpf, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
+                            .addComponent(cpf, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -151,7 +144,7 @@ public class CadastrarClienteView extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
                     .addComponent(btnVoltar))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -166,59 +159,16 @@ public class CadastrarClienteView extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-
-    }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                CadastrarClienteView dialog = new CadastrarClienteView(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
@@ -234,24 +184,25 @@ public class CadastrarClienteView extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     public JTextField getNomeCliente() {
-    return nomeCliente;
+        return nomeCliente;
     }
 
     public JTextField getCpf() {
     //isso aqui manda so os numeros pra quem chamar o get
-    return cpf; 
+        return cpf; 
     }
 
     public JTextField getTelefone() {
     //isso aqui manda so os numeros pra quem chamar o get
-    return telefone; 
+        return telefone; 
     }
 
     public javax.swing.JButton getBtnCadastrar() {
-    return btnCadastrar;
+        return btnCadastrar;
     }
 
     public javax.swing.JButton getBtnVoltar() {
-    return btnVoltar;
+        return btnVoltar;
     }
+
 }

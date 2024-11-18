@@ -24,9 +24,15 @@ public class EstacionarVeiculoController {
     private EstacionarVeiculoView view;
     private final String endereco = "estacionamentos.txt";
     
-    public EstacionarVeiculoController() {
+    public EstacionarVeiculoController(javax.swing.JDesktopPane tela) {
         
-        this.view = new EstacionarVeiculoView(new javax.swing.JFrame(), true);
+        this.view = new EstacionarVeiculoView();
+        tela.add(view);
+        
+        //essa codigo gera a tela no meio
+        int x = (tela.getWidth() - view.getWidth()) / 2;
+        int y = (tela.getHeight() - view.getHeight()) / 2;
+        view.setLocation(x, y);
         
         this.clientes = Clientes.getInstancia();
         this.estacionamentos = Estacionamentos.getInstancia();

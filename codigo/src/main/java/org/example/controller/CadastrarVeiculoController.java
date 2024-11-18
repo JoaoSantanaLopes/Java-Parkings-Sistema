@@ -22,9 +22,15 @@ public class CadastrarVeiculoController {
     private CadastrarVeiculoView cadastro;
     private final String endereço = "clientes.txt";
 
-    public CadastrarVeiculoController() {
+    public CadastrarVeiculoController(javax.swing.JDesktopPane tela) {
         
-        this.view = new PerguntaCpfVeiculoView(new javax.swing.JFrame(), true);
+        this.view = new PerguntaCpfVeiculoView();
+        tela.add(view);
+        
+        //essa codigo gera a tela no meio
+        int x = (tela.getWidth() - view.getWidth()) / 2;
+        int y = (tela.getHeight() - view.getHeight()) / 2;
+        view.setLocation(x, y);
         
         this.clientes = Clientes.getInstancia();
         
@@ -33,13 +39,13 @@ public class CadastrarVeiculoController {
         });
         
         view.getBtnProsseguir().addActionListener(e -> {
-            ProcurarPessoa();
+            ProcurarPessoa(tela); 
         });
         
         this.view.setVisible(true);
     }
     
-    private void ProcurarPessoa(){
+    private void ProcurarPessoa(javax.swing.JDesktopPane tela){
         String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
         Cliente obj = clientes.pesquisarCliente(cpf);
         if(obj == null) {
@@ -47,9 +53,22 @@ public class CadastrarVeiculoController {
         }
         else {
             view.dispose();
-            this.cadastro = new CadastrarVeiculoView(new javax.swing.JFrame(), true);
-            this.cadastro.setVisible(true);
+            this.cadastro = new CadastrarVeiculoView();
+            tela.add(cadastro);
+            
+            //essa codigo gera a tela no meio
+            int x = (tela.getWidth() - cadastro.getWidth()) / 2;
+            int y = (tela.getHeight() - cadastro.getHeight()) / 2;
+            view.setLocation(x, y);
+            
+            cadastro.getBtnVoltar().addActionListener(e -> {
+            cadastro.dispose();
+            });
+            cadastro.getBtnCadastrar().addActionListener(e -> {
             AdicionarCarro(obj);
+            cadastro.dispose();
+            });
+            this.cadastro.setVisible(true);
         }
     }
     

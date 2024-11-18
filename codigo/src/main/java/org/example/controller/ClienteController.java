@@ -12,10 +12,16 @@ public class ClienteController {
     private Clientes clientes;
     private final String endereço = "clientes.txt";
     
-    public ClienteController() {
+    public ClienteController(javax.swing.JDesktopPane tela) {
         
-        this.view = new CadastrarClienteView(new javax.swing.JFrame(), true);
-
+        this.view = new CadastrarClienteView();
+        tela.add(view);
+        
+        //essa codigo gera a tela no meio
+        int x = (tela.getWidth() - view.getWidth()) / 2;
+        int y = (tela.getHeight() - view.getHeight()) / 2;
+        view.setLocation(x, y);
+        
         this.clientes = Clientes.getInstancia();
         
         this.view.getBtnCadastrar().addActionListener((e)->{
