@@ -24,9 +24,9 @@ public class VagaController {
     public Map<String, Vaga> GerarVagas(){
         Map<String, Vaga> map = new HashMap<String, Vaga>();
         ArrayList<Vaga> vagas = new ArrayList<>();
-        vagas.addAll(GerarIdoso());
-        vagas.addAll(GerarPcd());
         vagas.addAll(GerarVaga());
+        vagas.addAll(GerarPcd());
+        vagas.addAll(GerarIdoso());
         vagas.addAll(GerarVip());
         for(Vaga vaga : vagas){
             map.put(vaga.getIdentificador(), vaga);

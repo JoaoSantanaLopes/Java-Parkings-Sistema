@@ -14,7 +14,7 @@ public class Main {
         
         MainController incia = new MainController();
         Estacionamentos teste = Estacionamentos.getInstancia();
-        Estacionamento obj = teste.pesquisarEstacionamento("teste2");
+        Estacionamento obj = teste.pesquisarEstacionamento(" maros");
         System.out.println(obj);
     }
 }

@@ -30,9 +30,9 @@ public class CadastrarEstacionamentoController {
     
         private void addEstacionamento() {
             int normal = Integer.valueOf(view.getQtdVagasNormais().getText()); 
-            int idoso = Integer.valueOf(view.getQtdVagasNormais().getText()); 
-            int PCD = Integer.valueOf(view.getQtdVagasNormais().getText()); 
-            int Vip = Integer.valueOf(view.getQtdVagasNormais().getText());
+            int idoso = Integer.valueOf(view.getQtdVagasIdoso().getText()); 
+            int PCD = Integer.valueOf(view.getQtdVagasPcd().getText()); 
+            int Vip = Integer.valueOf(view.getQtdVagasVip().getText());
             String nome = view.getNomeEstacionamento().getText();
             String rua = view.getRua().getText();
             int numero = Integer.valueOf(view.getNumero().getText());
