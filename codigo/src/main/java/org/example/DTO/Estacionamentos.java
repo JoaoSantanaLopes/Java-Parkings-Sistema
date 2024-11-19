@@ -7,9 +7,11 @@ package org.example.DTO;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.example.model.Cliente;
 import org.example.model.Estacionamento;
-import org.example.model.Vaga;
 import org.example.model.UsoDaVaga;
+import org.example.model.Vaga;
+
 
 /**
  *
@@ -66,6 +68,26 @@ public class Estacionamentos extends AbstractDAO implements Serializable {
             }
         }
         return null;
+    }
+    
+    public ArrayList<UsoDaVaga> PesquisarUsosVagaDeClienteEspecifico(Cliente cliente){
+        ArrayList<UsoDaVaga> obj = new ArrayList();
+        for (Estacionamento estacionamento : estacionamentos) {
+            ArrayList<Vaga> vagas = estacionamento.getVagas();
+            for(Vaga vaga : vagas) {
+                ArrayList<UsoDaVaga> usos = vaga.getUsoDaVaga();
+                for(UsoDaVaga uso : usos) {
+                    Cliente comp = uso.getCliente();
+                    if(cliente.getCpf().equalsIgnoreCase(comp.getCpf())) {
+                        obj.add(uso);
+                    }
+                }    
+            }
+        }
+        if(obj == null)
+            return null;
+        else
+            return obj;
     }
     
     @Override

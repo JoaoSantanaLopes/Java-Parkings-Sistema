@@ -40,8 +40,12 @@ public class UsoDaVaga implements Serializable{
     public Cliente getCliente() {
         return this.cliente;
     }
+    
+    public Vaga getVaga() {
+        return this.vaga;
+    }
 
-    private long calcularTempoEstadia() {
+    public long calcularTempoEstadia() {
         long segundos = Duration.between(this.dataHoraEntrada, this.dataHoraSaida).getSeconds();
         long minutos = segundos/60;
         return minutos;

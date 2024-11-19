@@ -13,14 +13,9 @@ public class Main {
     public static void main(String[] args){
         
         MainController incia = new MainController();
-<<<<<<< HEAD
-        Estacionamentos teste = Estacionamentos.getInstancia();
-        Estacionamento obj = teste.pesquisarEstacionamento(" maros");
-        System.out.println(obj);
-=======
         //Estacionamentos teste = Estacionamentos.getInstancia();
-        //Estacionamento obj = teste.pesquisarEstacionamento("teste2");
+       // Estacionamento obj = teste.pesquisarEstacionamento("MarcosCosta");
         //System.out.println(obj);
->>>>>>> e337390acc548dfa002e68a7ae3d0d115dde8672
+
     }
 }

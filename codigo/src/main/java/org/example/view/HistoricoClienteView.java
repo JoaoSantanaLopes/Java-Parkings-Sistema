@@ -43,11 +43,11 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nome do Estacionamento", "Placa do Carro", "Tempo Estacionado", "Data", "Preço"
+                "Id da Vaga", "Tempo Estacionado", "Data", "Preço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -55,6 +55,9 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(tabelaHistorico);
+        if (tabelaHistorico.getColumnModel().getColumnCount() > 0) {
+            tabelaHistorico.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

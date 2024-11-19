@@ -112,4 +112,16 @@ public class PerguntaCpfView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField cpf;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnProsseguir() {
+    return btnProsseguir;
+    }
+
+    public javax.swing.JButton getBtnVoltar() {
+    return btnVoltar;
+    }
+    
+    public javax.swing.JTextField getCpf() {
+    return cpf;
+    }
 }

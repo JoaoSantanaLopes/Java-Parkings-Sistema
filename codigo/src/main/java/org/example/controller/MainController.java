@@ -33,11 +33,11 @@ public class MainController {
             EstacionarVeiculoController d = new EstacionarVeiculoController(view.getTela());
         });
         
-        /*
-        view.getBtnHistoricoCliente().addActionListener(e ->{
-            
+        
+        view.getMenuHistoricoCliente().addActionListener(e ->{
+            HistoricoUsuarioController ef = new HistoricoUsuarioController(view.getTela());
         });
-        */
+        
         
         view.getMenuLiberarVaga().addActionListener(e ->{
             LiberarVagaController f = new LiberarVagaController(view.getTela());
@@ -48,7 +48,7 @@ public class MainController {
         });
         
         /*
-        view.getBtnValores().addActionListener(e ->{
+        view.getMenuValores().addActionListener(e ->{
             
         });
         */
