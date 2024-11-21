@@ -27,14 +27,21 @@ public class LiberarVagaController {
         this.clientes = Clientes.getInstancia();
         this.estacionamentos = Estacionamentos.getInstancia();
         double custo = LiberarVaga(nome, id);
-        JOptionPane.showMessageDialog(view, "Valor a ser pago:" + custo);   
+        JOptionPane.showMessageDialog(view, "Valor a ser pago: " + custo);   
     }
 
     private double LiberarVaga(String nome, String id) {
         
         Estacionamento estacionamento = estacionamentos.pesquisarEstacionamento(nome);
         Vaga vaga = estacionamentos.pesquisarVagaEstacionamento(id);
-        
+
+        if (vaga == null) {
+            throw new IllegalArgumentException("A vaga com o ID especificado não foi encontrada.");
+        }
+
+        if (vaga.getUsoDaVaga().isEmpty()) {
+            throw new IllegalStateException("A vaga selecionada não possui usos registrados.");
+        }
         estacionamentos.removerEstacionamento(estacionamento);
         UsoDaVaga uso = vaga.getUltimo();
         double custo = uso.baixarUsoDaVaga();
@@ -42,6 +49,8 @@ public class LiberarVagaController {
         estacionamentos.addEstacionamento(estacionamento);
         estacionamentos.gravar(endereco, estacionamentos.getEstacionamentos());
         return custo;
-    }
+}
+    
+}
         
-    }
+    
