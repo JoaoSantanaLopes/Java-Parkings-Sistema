@@ -54,6 +54,7 @@ public class ListarEstacionamentosView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaEstacionamentos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaEstacionamentos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

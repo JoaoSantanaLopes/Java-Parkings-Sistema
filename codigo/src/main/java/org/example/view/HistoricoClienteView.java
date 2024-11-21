@@ -54,6 +54,7 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaHistorico.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaHistorico);
         if (tabelaHistorico.getColumnModel().getColumnCount() > 0) {
             tabelaHistorico.getColumnModel().getColumn(1).setResizable(false);

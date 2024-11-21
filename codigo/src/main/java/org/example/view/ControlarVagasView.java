@@ -54,6 +54,7 @@ public class ControlarVagasView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaVagas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaVagas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
