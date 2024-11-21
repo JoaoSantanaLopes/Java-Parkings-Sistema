@@ -45,7 +45,7 @@ public class CadastrarEstacionamentoController {
             int numero = Integer.valueOf(view.getNumero().getText());
             String bairro = view.getBairro().getText();
             
-            VagaController vagas = new VagaController(normal, idoso, PCD, Vip);
+            CriarVagaController vagas = new CriarVagaController(normal, idoso, PCD, Vip);
             Estacionamento obj = new Estacionamento(nome, rua, bairro, numero, vagas.GerarVagas());
             estacionamentos.addEstacionamento(obj);
             estacionamentos.gravar(endereco, estacionamentos.getEstacionamentos());

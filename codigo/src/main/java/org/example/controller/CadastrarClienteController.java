@@ -6,13 +6,13 @@ import org.example.DTO.Clientes;
 import org.example.model.Cliente;
 import org.example.view.CadastrarClienteView;
 
-public class ClienteController {
+public class CadastrarClienteController {
     
     private CadastrarClienteView view;
     private Clientes clientes;
     private final String endereço = "clientes.txt";
     
-    public ClienteController(javax.swing.JDesktopPane tela) {
+    public CadastrarClienteController(javax.swing.JDesktopPane tela) {
         
         this.view = new CadastrarClienteView();
         tela.add(view);

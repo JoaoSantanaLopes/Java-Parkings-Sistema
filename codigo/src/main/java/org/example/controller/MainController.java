@@ -18,7 +18,7 @@ public class MainController {
         this.view = new JMainView();
         
         view.getMenuCadastrarCliente().addActionListener(e ->{
-            ClienteController a = new ClienteController(view.getTela());
+            CadastrarClienteController a = new CadastrarClienteController(view.getTela());
         });
         
         view.getMenuCadastrarVeiculo().addActionListener(e ->{
@@ -30,7 +30,7 @@ public class MainController {
         });
         
         view.getMenuEstacionarVeiculo().addActionListener(e ->{
-            EstacionarVeiculoController d = new EstacionarVeiculoController(view.getTela());
+            ListarVagasLivresController d = new ListarVagasLivresController(view.getTela());
         });
         
         
@@ -40,11 +40,11 @@ public class MainController {
         
         
         view.getMenuLiberarVaga().addActionListener(e ->{
-            LiberarVagaController f = new LiberarVagaController(view.getTela());
+            ListarVagasOcupadasController g = new ListarVagasOcupadasController(view.getTela(), view);
         });
         
         view.getMenuListarEstacionamentos().addActionListener(e ->{
-            ListarEstacionamentosController g = new ListarEstacionamentosController(view.getTela());
+            ListarEstacionamentosController h = new ListarEstacionamentosController(view.getTela());
         });
         
         /*

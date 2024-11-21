@@ -24,7 +24,7 @@ public class EstacionarVeiculoController {
     private EstacionarVeiculoView view;
     private final String endereco = "estacionamentos.txt";
     
-    public EstacionarVeiculoController(javax.swing.JDesktopPane tela) {
+    public EstacionarVeiculoController(javax.swing.JDesktopPane tela, String nomeEstacionamento, String id) {
         
         this.view = new EstacionarVeiculoView();
         tela.add(view);
@@ -36,6 +36,9 @@ public class EstacionarVeiculoController {
         
         this.clientes = Clientes.getInstancia();
         this.estacionamentos = Estacionamentos.getInstancia();
+        
+        view.getIdentificadorVaga().setText(id);
+        view.getNomeEstacionamento().setText(nomeEstacionamento);
         
         view.getBtnVoltar().addActionListener(e -> {
             view.dispose();
@@ -84,6 +87,7 @@ public class EstacionarVeiculoController {
          estacionamento.estacionarVeiculo(vaga.getIdentificador(), carro, cliente);
          estacionamentos.addEstacionamento(estacionamento);
          estacionamentos.gravar(endereco, estacionamentos.getEstacionamentos());
-         JOptionPane.showMessageDialog(view, "Veiculo Estacionado!");  
+         JOptionPane.showMessageDialog(view, "Veiculo Estacionado!");
+         view.dispose();
      }
 }

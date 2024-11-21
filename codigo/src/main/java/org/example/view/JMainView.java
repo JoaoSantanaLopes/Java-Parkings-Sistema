@@ -4,7 +4,7 @@
  */
 package org.example.view;
 
-import org.example.controller.ClienteController;
+import org.example.controller.CadastrarClienteController;
 
 /**
  *

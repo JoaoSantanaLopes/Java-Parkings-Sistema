@@ -74,8 +74,7 @@ public class HistoricoUsuarioController {
         for(UsoDaVaga obj : usos) {
         DefaultTableModel listaUsos = (DefaultTableModel) view.getTabelaHistorico().getModel();
         Vaga vaga = obj.getVaga();
-        Object[] dados = {vaga.getIdentificador(), obj.calcularTempoEstadia() + "minutos", obj.getDataHoraEntrada().toLocalDate() , obj.baixarUsoDaVaga()};
-            System.out.println("chegou3");
+        Object[] dados = {vaga.getIdentificador(), obj.calcularTempoEstadia() + " minutos", obj.getDataHoraEntrada().toLocalDate() , obj.baixarUsoDaVaga()};
         listaUsos.addRow(dados);
         }
         

@@ -39,7 +39,7 @@ public class Vaga implements Serializable{
         this.identificador = identificador;
     }
 
-    public boolean getDisponibilidade() {
+    public boolean isDisponibilidade() {
         return this.disponibilidade;
     }
 

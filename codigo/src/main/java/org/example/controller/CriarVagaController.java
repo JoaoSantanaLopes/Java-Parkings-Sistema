@@ -8,13 +8,13 @@ import org.example.model.VagaIdoso;
 import org.example.model.VagaPCD;
 import org.example.model.VagaVip;
 
-public class VagaController {
+public class CriarVagaController {
     private int normal;
     private int idoso;
     private int PCD;
     private int VIP;
 
-    public VagaController(int normal, int idoso, int PCD, int VIP) {
+    public CriarVagaController(int normal, int idoso, int PCD, int VIP) {
         this.normal = normal;
         this.idoso = idoso;
         this.PCD = PCD;

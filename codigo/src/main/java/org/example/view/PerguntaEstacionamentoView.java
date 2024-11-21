@@ -4,6 +4,8 @@
  */
 package org.example.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author Joao
@@ -115,8 +117,8 @@ public class PerguntaEstacionamentoView extends javax.swing.JInternalFrame {
         return btnVoltar;
     }
 
-    public String getNomeEstacionamento() {
-        return nomeEstacionamento.getText();
+    public JTextField getNomeEstacionamento() {
+        return nomeEstacionamento;
     }
 
 }
