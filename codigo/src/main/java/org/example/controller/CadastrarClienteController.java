@@ -42,12 +42,14 @@ public class CadastrarClienteController {
         String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
         String telefone = view.getTelefone().getText().replaceAll("[^\\d]", "");
         
-       Cliente obj = new Cliente(nome, cpf, telefone);
-       this.clientes.addCliente(obj);
-       this.clientes.gravar(endereço, clientes.getClientes());
-       
-       
-       JOptionPane.showMessageDialog(view, "Cliente Salvo com Sucesso!");  
+        if(nome.isEmpty() || cpf.isEmpty() || telefone.isEmpty()) {
+           JOptionPane.showMessageDialog(view, "Dados invalidos");   
+        }else {
+            Cliente obj = new Cliente(nome, cpf, telefone);
+            this.clientes.addCliente(obj);
+            this.clientes.gravar(endereço, clientes.getClientes());
+            JOptionPane.showMessageDialog(view, "Cliente Salvo com Sucesso!");  
+       }
     }
 
     private void limparCampos() {

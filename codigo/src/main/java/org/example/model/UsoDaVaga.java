@@ -8,8 +8,10 @@ public class UsoDaVaga implements Serializable{
     
     private static int proxId = 1;
     private int id;
-    private final LocalDateTime dataHoraEntrada;
+    private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
+    private long tempo;
+    private double preco;
     private Cliente cliente;
     private Vaga vaga;
     private static final long serialVersionUID = 1L;
@@ -36,6 +38,14 @@ public class UsoDaVaga implements Serializable{
     public LocalDateTime getDataHoraSaida() {
         return this.dataHoraSaida;
     }
+
+    public long getTempo() {
+        return tempo;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
     
     public Cliente getCliente() {
         return this.cliente;
@@ -45,20 +55,22 @@ public class UsoDaVaga implements Serializable{
         return this.vaga;
     }
 
-    public long calcularTempoEstadia() {
+    private long calcularTempoEstadia() {
         long segundos = Duration.between(this.dataHoraEntrada, this.dataHoraSaida).getSeconds();
-        long minutos = segundos/60;
-        return minutos;
+        this.tempo = segundos;
+        return tempo;
     }
 
     public double baixarUsoDaVaga() {
         this.dataHoraSaida = LocalDateTime.now();
-        long tempo = calcularTempoEstadia();
-        double valor = Vaga.getValorPor15Min() * (tempo / 15);
+        calcularTempoEstadia();
+        double valor = Vaga.getValorPor15Min() * (this.tempo / 15);
         if(valor > Vaga.getValorLimite()) {
-            return vaga.calcularPrecoVaga(Vaga.getValorLimite());
+            preco = vaga.calcularPrecoVaga(Vaga.getValorLimite());
+            return preco;
         }
-        return vaga.calcularPrecoVaga(valor);
+        preco = vaga.calcularPrecoVaga(valor);
+        return preco;
     }
 
 
