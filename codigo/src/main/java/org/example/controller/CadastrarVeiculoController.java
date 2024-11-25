@@ -59,7 +59,7 @@ public class CadastrarVeiculoController {
             //essa codigo gera a tela no meio
             int x = (tela.getWidth() - cadastro.getWidth()) / 2;
             int y = (tela.getHeight() - cadastro.getHeight()) / 2;
-            view.setLocation(x, y);
+            cadastro.setLocation(x, y);
             
             cadastro.getBtnVoltar().addActionListener(e -> {
             cadastro.dispose();
