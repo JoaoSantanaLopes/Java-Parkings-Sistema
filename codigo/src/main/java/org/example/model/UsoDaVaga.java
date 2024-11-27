@@ -57,7 +57,7 @@ public class UsoDaVaga implements Serializable{
 
     private long calcularTempoEstadia() {
         long segundos = Duration.between(this.dataHoraEntrada, this.dataHoraSaida).getSeconds();
-        this.tempo = segundos;
+        this.tempo = segundos / 60;
         return tempo;
     }
 

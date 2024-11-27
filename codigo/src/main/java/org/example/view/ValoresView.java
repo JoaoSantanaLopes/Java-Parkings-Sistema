@@ -4,6 +4,8 @@
  */
 package org.example.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author Joao
@@ -26,6 +28,7 @@ public class ValoresView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnVoltar1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -41,6 +44,14 @@ public class ValoresView extends javax.swing.JInternalFrame {
         ano = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
+
+        btnVoltar1.setText("Voltar");
+        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar1ActionPerformed(evt);
+            }
+        });
 
         setClosable(true);
         setIconifiable(true);
@@ -202,6 +213,13 @@ public class ValoresView extends javax.swing.JInternalFrame {
             }
         });
 
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -212,6 +230,8 @@ public class ValoresView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(btnVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPesquisar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +259,9 @@ public class ValoresView extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVoltar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnPesquisar))
                 .addGap(12, 12, 12))
         );
 
@@ -257,10 +279,6 @@ public class ValoresView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mesesActionPerformed
-
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
 
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -269,10 +287,24 @@ public class ValoresView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_anoActionPerformed
 
+    private void mesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesesActionPerformed
+
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField ano;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -289,27 +321,31 @@ public class ValoresView extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JButton getBtnVoltar() {
-    return btnVoltar;
+        return btnVoltar;
+    }
+    
+    public JButton getBtnPesquisar() {
+        return btnPesquisar;
     }
 
     public javax.swing.JComboBox<String> getMeses() {
-    return meses;
+        return meses;
     }
 
     public javax.swing.JTable getTabelaRanking() {
-    return tabelaRanking;
+        return tabelaRanking;
     }
 
     public javax.swing.JLabel getValorMedio() {
-    return valorMedio;
+        return valorMedio;
     }
 
     public javax.swing.JLabel getValorMensal() {
-    return valorMensal;
+        return valorMensal;
     }
 
     public javax.swing.JLabel getValorTotal() {
-    return valorTotal;
+        return valorTotal;
     }
     
     public javax.swing.JTextField getAno(){

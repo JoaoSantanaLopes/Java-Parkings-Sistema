@@ -47,11 +47,11 @@ public class MainController {
             ListarEstacionamentosController h = new ListarEstacionamentosController(view.getTela());
         });
         
-        /*
+        
         view.getMenuValores().addActionListener(e ->{
-            
+            ValoresController i = new ValoresController(view.getTela());
         });
-        */
+        
         
         view.setVisible(true);
     }
