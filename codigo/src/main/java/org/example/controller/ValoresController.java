@@ -7,7 +7,9 @@ package org.example.controller;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import javax.swing.JDesktopPane;
@@ -113,13 +115,15 @@ public class ValoresController {
         view.getValorMensal().setText(ValorMensal(primeiroDia, ultimoDia, obj));
         
         Map<Cliente, Double> clientes = PreencherClientes(obj, primeiroDia, ultimoDia);
-         for (Map.Entry<Cliente, Double> entrada : clientes.entrySet()) {
-            if(entrada.getValue() > 3) {
-            Cliente temp = entrada.getKey();
-            Object[] dados = {temp.getNome(), entrada.getValue()};
+        List<Map.Entry<Cliente, Double>> entryList = new ArrayList<>(clientes.entrySet());
+        quickSort(entryList, 0, entryList.size() - 1);
+        for (Map.Entry<Cliente, Double> entry : entryList) {
+            if(entry.getValue() >= 4){
+            Object[] dados = {entry.getKey().getNome() ,  entry.getValue()};
             listaRanking.addRow(dados);
             }
         }
+
     }
 
     private String ValorTotal(Estacionamento obj) {
@@ -157,9 +161,11 @@ public class ValoresController {
         for(Vaga vaga : vagas) {
             ArrayList<UsoDaVaga> usos = vaga.getUsoDaVaga();
                 for(UsoDaVaga uso : usos) {
+                    if(uso.getDataHoraSaida() != null){
                     if(!uso.getDataHoraSaida().toLocalDate().isBefore(dataInicio) && !uso.getDataHoraSaida().toLocalDate().isAfter(dataFim)) 
                     valor += uso.getPreco();
                 }
+                }  
         }
         String formatado = String.format("%.2f", valor);
         if(valor > 0) 
@@ -189,5 +195,28 @@ public class ValoresController {
         }
         return clientes;
     }
+    
+    public static void quickSort(List<Map.Entry<Cliente, Double>> list, int low, int high) {
+        if (low < high) {
+            int pi = partition(list, low, high);
+            quickSort(list, low, pi - 1);
+            quickSort(list, pi + 1, high);
+        }
+    }
+
+    public static int partition(List<Map.Entry<Cliente, Double>> list, int low, int high) {
+        double pivot = list.get(high).getValue(); 
+        int i = (low - 1); 
+
+        for (int j = low; j < high; j++) {
+            if (list.get(j).getValue() >= pivot) {
+                i++;
+                Collections.swap(list, i, j);
+            }
+        }
+
+        Collections.swap(list, i + 1, high);
+        return i + 1;
+    } 
     
 }

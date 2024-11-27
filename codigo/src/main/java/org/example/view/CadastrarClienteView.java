@@ -4,6 +4,7 @@
  */
 package org.example.view;
 
+import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
 /**
@@ -101,7 +102,7 @@ public class CadastrarClienteView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addGap(15, 15, 15))
         );
 
         btnCadastrar.setText("Cadastrar");
@@ -144,7 +145,7 @@ public class CadastrarClienteView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
                     .addComponent(btnVoltar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,12 +188,12 @@ public class CadastrarClienteView extends javax.swing.JInternalFrame {
         return nomeCliente;
     }
 
-    public JTextField getCpf() {
+    public JFormattedTextField getCpf() {
     //isso aqui manda so os numeros pra quem chamar o get
         return cpf; 
     }
 
-    public JTextField getTelefone() {
+    public JFormattedTextField getTelefone() {
     //isso aqui manda so os numeros pra quem chamar o get
         return telefone; 
     }
@@ -204,5 +205,4 @@ public class CadastrarClienteView extends javax.swing.JInternalFrame {
     public javax.swing.JButton getBtnVoltar() {
         return btnVoltar;
     }
-
 }

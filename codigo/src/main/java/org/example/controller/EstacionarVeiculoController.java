@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import org.example.DTO.Clientes;
 import org.example.DTO.Estacionamentos;
 import org.example.model.Cliente;
+import org.example.model.ClienteAnonimo;
 import org.example.model.Estacionamento;
 import org.example.model.Vaga;
 import org.example.model.Veiculo;
@@ -48,12 +49,26 @@ public class EstacionarVeiculoController {
             Verificação();
         });
         
+        this.view.getCheckBoxAnonimo().addActionListener((e) -> {
+            if (this.view.getCheckBoxAnonimo().isSelected()) {
+                view.getCpf().setText("");
+                view.getCpf().setEnabled(false);
+            } else { 
+                view.getCpf().setEnabled(true);
+        }});
+        
         this.view.setVisible(true);
     }
     
     private void Verificação(){
-        String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
-        Cliente obj = clientes.pesquisarCliente(cpf);
+        Cliente obj;
+        if(view.getCheckBoxAnonimo().isSelected()){
+            obj = ClienteAnonimo.getInstancia();
+        }
+        else{
+            String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
+            obj = clientes.pesquisarCliente(cpf);
+        }
         
         String nome = view.getNomeEstacionamento().getText();
         Estacionamento obj2 = estacionamentos.pesquisarEstacionamento(nome);

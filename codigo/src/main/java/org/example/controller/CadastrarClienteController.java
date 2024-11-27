@@ -32,7 +32,7 @@ public class CadastrarClienteController {
         this.view.getBtnVoltar().addActionListener((e)->{
             sair();
         });
-                
+ 
         this.view.setVisible(true);
     }
     

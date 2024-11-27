@@ -36,6 +36,7 @@ public class EstacionarVeiculoView extends javax.swing.JInternalFrame {
         identificadorVaga = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         cpf = new javax.swing.JFormattedTextField();
+        checkBoxAnonimo = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         placa = new javax.swing.JTextField();
@@ -72,6 +73,8 @@ public class EstacionarVeiculoView extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
+        checkBoxAnonimo.setText("Cliente anônimo?");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -92,11 +95,13 @@ public class EstacionarVeiculoView extends javax.swing.JInternalFrame {
                                 .addComponent(identificadorVaga)
                                 .addContainerGap())))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(cpf)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(checkBoxAnonimo))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +118,9 @@ public class EstacionarVeiculoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(8, 8, 8)
+                .addComponent(checkBoxAnonimo)
+                .addGap(8, 8, 8))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações do Veículo"));
@@ -224,6 +231,7 @@ public class EstacionarVeiculoView extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEstacionar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JCheckBox checkBoxAnonimo;
     private javax.swing.JFormattedTextField cpf;
     private javax.swing.JTextField identificadorVaga;
     private javax.swing.JLabel jLabel1;
@@ -238,27 +246,31 @@ public class EstacionarVeiculoView extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     public JTextField getNomeEstacionamento() {
-    return nomeEstacionamento;
-}
+        return nomeEstacionamento;
+    }
 
     public JTextField getIdentificadorVaga() {
-    return identificadorVaga;
+        return identificadorVaga;
     }
 
     public JTextField getCpf() {
-    return cpf; 
+        return cpf; 
     }
 
     public JTextField getPlaca() {
-    return placa;
+        return placa;
     }
 
     public javax.swing.JButton getBtnEstacionar() {
-    return btnEstacionar;
+        return btnEstacionar;
     }
 
     public javax.swing.JButton getBtnVoltar() {
-    return btnVoltar;
+        return btnVoltar;
     }
 
+    public javax.swing.JCheckBox getCheckBoxAnonimo(){
+        return checkBoxAnonimo;
+    }
+    
 }

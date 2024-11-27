@@ -28,6 +28,7 @@ public class PerguntaCpfVeiculoView extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         cpf = new javax.swing.JFormattedTextField();
+        CheckBoxAnonimo = new javax.swing.JCheckBox();
         btnVoltar = new javax.swing.JButton();
         btnProsseguir = new javax.swing.JButton();
 
@@ -43,13 +44,19 @@ public class PerguntaCpfVeiculoView extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
+        CheckBoxAnonimo.setText("Cliente deseja se manter anônimo?");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cpf)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cpf)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(CheckBoxAnonimo)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -57,7 +64,9 @@ public class PerguntaCpfVeiculoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
+                .addComponent(CheckBoxAnonimo)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         btnVoltar.setText("Voltar");
@@ -95,7 +104,7 @@ public class PerguntaCpfVeiculoView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
                     .addComponent(btnProsseguir))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,6 +116,7 @@ public class PerguntaCpfVeiculoView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CheckBoxAnonimo;
     private javax.swing.JButton btnProsseguir;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField cpf;
@@ -114,15 +124,18 @@ public class PerguntaCpfVeiculoView extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JButton getBtnProsseguir() {
-    return btnProsseguir;
+        return btnProsseguir;
     }
 
     public javax.swing.JButton getBtnVoltar() {
-    return btnVoltar;
+        return btnVoltar;
     }
     
     public javax.swing.JTextField getCpf() {
-    return cpf;
+        return cpf;
     }
-
+    
+    public javax.swing.JCheckBox getCheckBoxAnonimo(){
+        return CheckBoxAnonimo;
+    }
 }

@@ -7,6 +7,7 @@ package org.example.controller;
 import javax.swing.JOptionPane;
 import org.example.DTO.Clientes;
 import org.example.model.Cliente;
+import org.example.model.ClienteAnonimo;
 import org.example.model.Veiculo;
 import org.example.view.CadastrarVeiculoView;
 import org.example.view.PerguntaCpfVeiculoView;
@@ -42,12 +43,28 @@ public class CadastrarVeiculoController {
             ProcurarPessoa(tela); 
         });
         
+        this.view.getCheckBoxAnonimo().addActionListener((e) -> {
+            if (this.view.getCheckBoxAnonimo().isSelected()) {
+                view.getCpf().setText("");
+                view.getCpf().setEnabled(false);
+            } else {
+                view.getCpf().setEnabled(true);
+        }});
+        
         this.view.setVisible(true);
     }
     
     private void ProcurarPessoa(javax.swing.JDesktopPane tela){
-        String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
-        Cliente obj = clientes.pesquisarCliente(cpf);
+        
+        Cliente obj;
+        if(this.view.getCheckBoxAnonimo().isSelected()){
+            obj = ClienteAnonimo.getInstancia();
+        }
+        else{
+            String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
+            obj = clientes.pesquisarCliente(cpf); 
+        }
+           
         if(obj == null) {
             JOptionPane.showMessageDialog(view, "Cliente não existe!!");  
         }
