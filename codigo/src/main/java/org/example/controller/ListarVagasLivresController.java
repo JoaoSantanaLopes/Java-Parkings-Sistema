@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.example.DTO.Estacionamentos;
+import org.example.DTO.EstacionamentoDAO;
 import org.example.model.Estacionamento;
 import org.example.model.Vaga;
 import org.example.view.ControlarVagasView;
@@ -21,7 +21,6 @@ import org.example.view.PerguntaEstacionamentoView;
  */
 public class ListarVagasLivresController {
     
-    private Estacionamentos estacionamento;
     private ControlarVagasView view;
     private PerguntaEstacionamentoView preview;
 
@@ -33,8 +32,6 @@ public class ListarVagasLivresController {
         int x = (tela.getWidth() - preview.getWidth()) / 2;
         int y = (tela.getHeight() - preview.getHeight()) / 2;
         preview.setLocation(x, y);
-        
-        this.estacionamento = Estacionamentos.getInstancia();
         
         preview.getBtnVoltar().addActionListener(e -> {
             preview.dispose();
@@ -49,7 +46,7 @@ public class ListarVagasLivresController {
 
     private void ProcurarEstacionamento(javax.swing.JDesktopPane tela) {
         String nome = preview.getNomeEstacionamento().getText();
-        Estacionamento obj = estacionamento.pesquisarEstacionamento(nome);
+        Estacionamento obj = new EstacionamentoDAO().procurarEstacionamento(nome);
         
         if(obj == null) {
             JOptionPane.showMessageDialog(view, "Estacionamento não existe!!");  

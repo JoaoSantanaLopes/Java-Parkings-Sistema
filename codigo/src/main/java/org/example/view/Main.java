@@ -1,8 +1,9 @@
 package org.example.view;
 
-import org.example.DTO.Estacionamentos;
+import org.example.DTO.ClienteDAO;
 import org.example.controller.MainController;
-import org.example.model.Estacionamento;
+import org.example.model.Cliente;
+
 
 
 public class Main {

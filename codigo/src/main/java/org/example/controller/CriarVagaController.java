@@ -3,6 +3,7 @@ package org.example.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.example.DTO.VagaDAO;
 import org.example.model.Vaga;
 import org.example.model.VagaIdoso;
 import org.example.model.VagaPCD;
@@ -13,12 +14,14 @@ public class CriarVagaController {
     private int idoso;
     private int PCD;
     private int VIP;
+    private int idEstacionamento;
 
-    public CriarVagaController(int normal, int idoso, int PCD, int VIP) {
+    public CriarVagaController(int normal, int idoso, int PCD, int VIP, int id) {
         this.normal = normal;
         this.idoso = idoso;
         this.PCD = PCD;
         this.VIP = VIP;
+        this.idEstacionamento = id;
     }
     
     public Map<String, Vaga> GerarVagas(){
@@ -37,7 +40,8 @@ public class CriarVagaController {
     private ArrayList<VagaIdoso> GerarIdoso() {
         ArrayList<VagaIdoso> array = new ArrayList<>();
         for(int i = 0; i < idoso; i++){
-            VagaIdoso obj = new VagaIdoso("VI", true);
+            VagaIdoso obj = new VagaIdoso("VI", true, idEstacionamento);
+            new VagaDAO().CadastrarVaga(obj);
             array.add(obj);
         }
         return array;
@@ -45,7 +49,8 @@ public class CriarVagaController {
     private ArrayList<VagaPCD> GerarPcd() {
         ArrayList<VagaPCD> array = new ArrayList<>();
         for(int i = 0; i < PCD; i++){
-            VagaPCD obj = new VagaPCD("VPCD", true);
+            VagaPCD obj = new VagaPCD("VPCD", true, idEstacionamento);
+            new VagaDAO().CadastrarVaga(obj);
             array.add(obj);
         }
         return array;
@@ -53,7 +58,8 @@ public class CriarVagaController {
     private ArrayList<Vaga> GerarVaga() {
         ArrayList<Vaga> array = new ArrayList<>();
         for(int i = 0; i < normal; i++){
-            Vaga obj = new Vaga("V", true);
+            Vaga obj = new Vaga("V", true, idEstacionamento);
+            new VagaDAO().CadastrarVaga(obj);
             array.add(obj);
         }
         return array;
@@ -61,7 +67,8 @@ public class CriarVagaController {
     private ArrayList<VagaVip> GerarVip() {
         ArrayList<VagaVip> array = new ArrayList<>();
         for(int i = 0; i < VIP; i++){
-            VagaVip obj = new VagaVip("VIP", true);
+            VagaVip obj = new VagaVip("VIP", true, idEstacionamento);
+            new VagaDAO().CadastrarVaga(obj);
             array.add(obj);
         }
         return array;

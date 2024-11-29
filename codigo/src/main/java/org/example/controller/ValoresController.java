@@ -15,7 +15,7 @@ import java.util.Map;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.example.DTO.Estacionamentos;
+import org.example.DTO.EstacionamentoDAO;
 import org.example.model.Cliente;
 import org.example.model.Estacionamento;
 import org.example.model.UsoDaVaga;
@@ -29,7 +29,6 @@ import org.example.view.ValoresView;
  */
 public class ValoresController {
     
-    private Estacionamentos estacionamentos;
     private ValoresView view;
     private PerguntaEstacionamentoView preview;
     
@@ -42,7 +41,6 @@ public class ValoresController {
         int y = (tela.getHeight() - preview.getHeight()) / 2;
         preview.setLocation(x, y);
         
-        this.estacionamentos = Estacionamentos.getInstancia();
         
         preview.getBtnVoltar().addActionListener(e -> {
             preview.dispose();
@@ -57,7 +55,7 @@ public class ValoresController {
     
      private void ProcurarEstacionamento(javax.swing.JDesktopPane tela) {
         String nome = preview.getNomeEstacionamento().getText();
-        Estacionamento obj = estacionamentos.pesquisarEstacionamento(nome);
+        Estacionamento obj = new EstacionamentoDAO().procurarEstacionamento(nome);
         
         if(obj == null) {
             JOptionPane.showMessageDialog(preview, "Estacionamento não existe!!");  

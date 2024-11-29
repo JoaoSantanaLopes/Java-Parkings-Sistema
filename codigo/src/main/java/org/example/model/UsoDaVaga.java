@@ -15,14 +15,17 @@ public class UsoDaVaga implements Serializable{
     private Cliente cliente;
     private Vaga vaga;
     private static final long serialVersionUID = 1L;
-
+    
     public UsoDaVaga(Vaga vaga, Cliente cliente) {
         this.dataHoraEntrada = LocalDateTime.now();
         this.vaga = vaga;
         this.cliente = cliente;
         this.id = getProxId();
     }
-    
+
+    public UsoDaVaga() {
+    }
+  
     private int getProxId(){
         return proxId++;
     }
@@ -55,6 +58,34 @@ public class UsoDaVaga implements Serializable{
         return this.vaga;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDataHoraEntrada(LocalDateTime dataHoraEntrada) {
+        this.dataHoraEntrada = dataHoraEntrada;
+    }
+
+    public void setDataHoraSaida(LocalDateTime dataHoraSaida) {
+        this.dataHoraSaida = dataHoraSaida;
+    }
+
+    public void setTempo(long tempo) {
+        this.tempo = tempo;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setVaga(Vaga vaga) {
+        this.vaga = vaga;
+    }
+    
     private long calcularTempoEstadia() {
         long segundos = Duration.between(this.dataHoraEntrada, this.dataHoraSaida).getSeconds();
         this.tempo = segundos / 60;

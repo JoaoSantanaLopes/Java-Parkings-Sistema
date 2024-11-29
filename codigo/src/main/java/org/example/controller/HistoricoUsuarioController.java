@@ -8,8 +8,8 @@ package org.example.controller;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.example.DTO.Clientes;
-import org.example.DTO.Estacionamentos;
+import org.example.DTO.ClienteDAO;
+import org.example.DTO.UsoDaVagaDAO;
 import org.example.model.Cliente;
 import org.example.model.UsoDaVaga;
 import org.example.model.Vaga;
@@ -21,14 +21,10 @@ import org.example.view.PerguntaCpfView;
  * @author Pedro
  */
 public class HistoricoUsuarioController {
-    private Clientes clientes;
-    private Estacionamentos estacionamentos;
     private PerguntaCpfView preview;
     private HistoricoClienteView view;
 
     public HistoricoUsuarioController(javax.swing.JDesktopPane tela) {
-        clientes = Clientes.getInstancia();
-        estacionamentos = Estacionamentos.getInstancia();
         
         preview = new PerguntaCpfView();
         tela.add(preview);
@@ -49,7 +45,7 @@ public class HistoricoUsuarioController {
     
     private void procuraCliente(javax.swing.JDesktopPane tela) {
         String cpf = preview.getCpf().getText().replaceAll("[^\\d]", "");;
-        Cliente obj = this.clientes.pesquisarCliente(cpf);
+        Cliente obj = new ClienteDAO().procurarCliente(cpf);
         if(obj == null){
             JOptionPane.showMessageDialog(preview, "Cliente não encontrado!");
         }
@@ -70,7 +66,8 @@ public class HistoricoUsuarioController {
             view.dispose();
         });
         
-        ArrayList<UsoDaVaga> usos = this.estacionamentos.PesquisarUsosVagaDeClienteEspecifico(cliente);
+        int id = new ClienteDAO().procurarId(cliente.getCpf());
+        ArrayList<UsoDaVaga> usos = new UsoDaVagaDAO().PesquisarUsoVagapeloIdCliente(id);
         for(UsoDaVaga obj : usos) {
         DefaultTableModel listaUsos = (DefaultTableModel) view.getTabelaHistorico().getModel();
         Vaga vaga = obj.getVaga();

@@ -3,7 +3,8 @@ package org.example.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Collection;
+import org.example.DTO.UsoDaVagaDAO;
+import org.example.DTO.VagaDAO;
 
 public class Estacionamento implements Serializable{
     private String nome;
@@ -13,6 +14,9 @@ public class Estacionamento implements Serializable{
     private Map<String, Vaga> vagas;
     private static final long serialVersionUID = 1L;
 
+    public Estacionamento() {
+    }
+    
     public Estacionamento (String nome, String rua, String bairro, int numero, Map<String, Vaga> vagas) {
         this.nome = nome;
         this.bairro = bairro;
@@ -49,7 +53,13 @@ public class Estacionamento implements Serializable{
         this.numero = numero;
     }
 
-    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setVagas(Map<String, Vaga> vagas) {
+        this.vagas = vagas;
+    }
 
     public ArrayList<Vaga> getVagas() {
         ArrayList<Vaga> vagas = new ArrayList<>(this.vagas.values());
@@ -65,16 +75,18 @@ public class Estacionamento implements Serializable{
         }
     }
 
-    public void estacionarVeiculo(String vaga, Veiculo veiculo, Cliente cliente) {
-    Vaga vagaDestino = vagas.get(vaga);
-        UsoDaVaga novoUsoVaga = new UsoDaVaga(vagaDestino, cliente);
-        vagaDestino.addUsoVaga(novoUsoVaga);
-        vagaDestino.setDisponibilidade(false);
+    public void estacionarVeiculo(Vaga vaga, Cliente cliente) {
+        UsoDaVaga novoUsoVaga = new UsoDaVaga(vaga, cliente);
+        vaga.addUsoVaga(novoUsoVaga);
+        vaga.setDisponibilidade(false);
+        new UsoDaVagaDAO().CadastrarUsoDaVaga(novoUsoVaga, vaga);
+        new VagaDAO().atualizarVaga(vaga.getIdentificador(), vaga.getIdEstacionamento(), vaga.isDisponibilidade());
 }
     
     public void liberarVaga(String vaga) {
         Vaga vagaLiberada = vagas.get(vaga);
         vagaLiberada.setDisponibilidade(true);
+        new VagaDAO().atualizarVaga(vagaLiberada.getIdentificador(), vagaLiberada.getIdEstacionamento(), vagaLiberada.isDisponibilidade());
     }
 
     

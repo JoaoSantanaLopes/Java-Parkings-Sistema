@@ -5,7 +5,8 @@
 package org.example.controller;
 
 import javax.swing.JOptionPane;
-import org.example.DTO.Clientes;
+import org.example.DTO.ClienteDAO;
+import org.example.DTO.VeiculoDAO;
 import org.example.model.Cliente;
 import org.example.model.ClienteAnonimo;
 import org.example.model.Veiculo;
@@ -18,10 +19,8 @@ import org.example.view.PerguntaCpfVeiculoView;
  */
 public class CadastrarVeiculoController {
     
-    private Clientes clientes;
     private PerguntaCpfVeiculoView view;
     private CadastrarVeiculoView cadastro;
-    private final String endereço = "clientes.txt";
 
     public CadastrarVeiculoController(javax.swing.JDesktopPane tela) {
         
@@ -33,7 +32,6 @@ public class CadastrarVeiculoController {
         int y = (tela.getHeight() - view.getHeight()) / 2;
         view.setLocation(x, y);
         
-        this.clientes = Clientes.getInstancia();
         
         view.getBtnVoltar().addActionListener(e -> {
             view.dispose();
@@ -62,7 +60,7 @@ public class CadastrarVeiculoController {
         }
         else{
             String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
-            obj = clientes.pesquisarCliente(cpf); 
+            obj = new ClienteDAO().procurarCliente(cpf);
         }
            
         if(obj == null) {
@@ -93,10 +91,7 @@ public class CadastrarVeiculoController {
         String placa = cadastro.getPlaca().getText();
         String modelo = cadastro.getModelo().getText();
         String marca = cadastro.getMarca().getText();
-        this.clientes.removerCliente(obj);
         Veiculo veiculo = new Veiculo(placa, modelo, marca);
-        obj.adicionarVeiculo(veiculo);
-        clientes.addCliente(obj);
-        this.clientes.gravar(endereço, clientes.getClientes());
+        new VeiculoDAO().cadastrarVeiculo(veiculo, obj.getCpf());
     }
 }

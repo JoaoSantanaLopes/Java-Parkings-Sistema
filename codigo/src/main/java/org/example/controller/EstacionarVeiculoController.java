@@ -5,8 +5,10 @@
 package org.example.controller;
 
 import javax.swing.JOptionPane;
-import org.example.DTO.Clientes;
-import org.example.DTO.Estacionamentos;
+import org.example.DTO.ClienteDAO;
+import org.example.DTO.EstacionamentoDAO;
+import org.example.DTO.VagaDAO;
+import org.example.DTO.VeiculoDAO;
 import org.example.model.Cliente;
 import org.example.model.ClienteAnonimo;
 import org.example.model.Estacionamento;
@@ -20,10 +22,7 @@ import org.example.view.EstacionarVeiculoView;
  */
 public class EstacionarVeiculoController {
      
-    private Clientes clientes;
-    private Estacionamentos estacionamentos;
     private EstacionarVeiculoView view;
-    private final String endereco = "estacionamentos.txt";
     
     public EstacionarVeiculoController(javax.swing.JDesktopPane tela, String nomeEstacionamento, String id) {
         
@@ -34,9 +33,6 @@ public class EstacionarVeiculoController {
         int x = (tela.getWidth() - view.getWidth()) / 2;
         int y = (tela.getHeight() - view.getHeight()) / 2;
         view.setLocation(x, y);
-        
-        this.clientes = Clientes.getInstancia();
-        this.estacionamentos = Estacionamentos.getInstancia();
         
         view.getIdentificadorVaga().setText(id);
         view.getNomeEstacionamento().setText(nomeEstacionamento);
@@ -62,22 +58,27 @@ public class EstacionarVeiculoController {
     
     private void Verificação(){
         Cliente obj;
+        int idCliente;
         if(view.getCheckBoxAnonimo().isSelected()){
             obj = ClienteAnonimo.getInstancia();
+            idCliente = new ClienteDAO().procurarId(obj.getCpf());
         }
         else{
             String cpf = view.getCpf().getText().replaceAll("[^\\d]", "");
-            obj = clientes.pesquisarCliente(cpf);
+            obj = new ClienteDAO().procurarCliente(cpf);
+            idCliente = new ClienteDAO().procurarId(cpf);
         }
         
         String nome = view.getNomeEstacionamento().getText();
-        Estacionamento obj2 = estacionamentos.pesquisarEstacionamento(nome);
+        Estacionamento obj2 = new EstacionamentoDAO().procurarEstacionamento(nome);
+        int id = new EstacionamentoDAO().procurarId(nome);
         
         String placa = view.getPlaca().getText();
-        Veiculo obj3 = clientes.pesquisarVeiculoCliente(placa);
+        Veiculo obj3 = new VeiculoDAO().pesquisaVeiculoPorPlaca(placa, idCliente);
         
         String identificador = view.getIdentificadorVaga().getText();
-        Vaga obj4 = estacionamentos.pesquisarVagaEstacionamento(identificador);
+        int idVaga = new VagaDAO().procurarId(identificador, id);
+        Vaga obj4 = new VagaDAO().procurarVaga(idVaga);
         
         if(obj == null) {
             JOptionPane.showMessageDialog(view, "Cliente não existe!!");
@@ -89,19 +90,16 @@ public class EstacionarVeiculoController {
             JOptionPane.showMessageDialog(view, "Veículo não existe!!");
         }
         else if(obj4 == null){
-            JOptionPane.showMessageDialog(view, "Vaga não existe!!");
+            JOptionPane.showMessageDialog(view, "Vaga não existe ou não te Pertence!!");
         }else {
-            Estacionar(obj, obj2, obj3, obj4);
+            Estacionar(obj, obj2, obj4);
         }
     }
    
 
      
-     private void Estacionar(Cliente cliente, Estacionamento estacionamento, Veiculo carro, Vaga vaga){
-         estacionamentos.removerEstacionamento(estacionamento);
-         estacionamento.estacionarVeiculo(vaga.getIdentificador(), carro, cliente);
-         estacionamentos.addEstacionamento(estacionamento);
-         estacionamentos.gravar(endereco, estacionamentos.getEstacionamentos());
+     private void Estacionar(Cliente cliente, Estacionamento estacionamento, Vaga vaga){
+         estacionamento.estacionarVeiculo(vaga, cliente);
          JOptionPane.showMessageDialog(view, "Veiculo Estacionado!");
          view.dispose();
      }

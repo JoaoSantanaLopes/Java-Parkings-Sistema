@@ -1,15 +1,13 @@
 package org.example.controller;
 
 import javax.swing.JOptionPane;
-import org.example.DTO.Estacionamentos;
+import org.example.DTO.EstacionamentoDAO;
 import org.example.model.Estacionamento;
 import org.example.view.CadastrarEstacionamentoView;
 
 public class CadastrarEstacionamentoController {
     
     private CadastrarEstacionamentoView view;
-    private Estacionamentos estacionamentos;
-    private final String endereco = "estacionamentos.txt";
 
     public CadastrarEstacionamentoController(javax.swing.JDesktopPane tela) {
         
@@ -21,7 +19,6 @@ public class CadastrarEstacionamentoController {
         int y = (tela.getHeight() - view.getHeight()) / 2;
         view.setLocation(x, y);
         
-        this.estacionamentos = Estacionamentos.getInstancia();
         
         this.view.getBtnCadastrar().addActionListener((e)->{
             addEstacionamento();
@@ -36,21 +33,22 @@ public class CadastrarEstacionamentoController {
     }
     
         private void addEstacionamento() {
-            int normal = Integer.valueOf(view.getQtdVagasNormais().getText()); 
-            int idoso = Integer.valueOf(view.getQtdVagasIdoso().getText()); 
-            int PCD = Integer.valueOf(view.getQtdVagasPcd().getText()); 
-            int Vip = Integer.valueOf(view.getQtdVagasVip().getText());
+            int normal = Integer.parseInt(view.getQtdVagasNormais().getText()); 
+            int idoso = Integer.parseInt(view.getQtdVagasIdoso().getText()); 
+            int PCD = Integer.parseInt(view.getQtdVagasPcd().getText()); 
+            int Vip = Integer.parseInt(view.getQtdVagasVip().getText());
             String nome = view.getNomeEstacionamento().getText();
             String rua = view.getRua().getText();
-            int numero = Integer.valueOf(view.getNumero().getText());
+            int numero = Integer.parseInt(view.getNumero().getText());
             String bairro = view.getBairro().getText();
             
-            CriarVagaController vagas = new CriarVagaController(normal, idoso, PCD, Vip);
+            new EstacionamentoDAO().CadastrarEstacionamento(nome, rua, bairro, numero);
+            int id = new EstacionamentoDAO().procurarId(nome);
+            CriarVagaController vagas = new CriarVagaController(normal, idoso, PCD, Vip, id);
             Estacionamento obj = new Estacionamento(nome, rua, bairro, numero, vagas.GerarVagas());
-            estacionamentos.addEstacionamento(obj);
-            estacionamentos.gravar(endereco, estacionamentos.getEstacionamentos());
             
             JOptionPane.showMessageDialog(view, "Estacionamento Salvo com Sucesso!");
+            view.dispose();
     }
     
     

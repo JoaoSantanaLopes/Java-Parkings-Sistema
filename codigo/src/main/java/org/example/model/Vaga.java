@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Vaga implements Serializable{
     private static int proxId = 1;
+    private int idEstacionamento;
     private String identificador;
     private boolean disponibilidade;
     private ArrayList<UsoDaVaga> usoDaVaga;
@@ -13,14 +14,24 @@ public class Vaga implements Serializable{
     private static double valorLimite = 50;
     private static final long serialVersionUID = 1L;
 
-    public Vaga(String identificador, boolean disponibilidade) {
+    public Vaga() {
+        this.usoDaVaga = new ArrayList<>();
+    }
+    
+    
+    public Vaga(String identificador, boolean disponibilidade, int idEstacionamento) {
         this.identificador = identificador + this.getProxId();
         this.disponibilidade = disponibilidade;
+        this.idEstacionamento = idEstacionamento;
         this.usoDaVaga = new ArrayList<>();
     }
     
     private int getProxId(){
         return proxId++;
+    }
+
+    public int getIdEstacionamento() {
+        return idEstacionamento;
     }
     
     public static double getValorPor15Min() {
@@ -35,6 +46,10 @@ public class Vaga implements Serializable{
         return this.identificador;
     }
 
+    public void setIdEstacionamento(int idEstacionamento) {
+        this.idEstacionamento = idEstacionamento;
+    }
+    
     public void setIdentificador(String identificador) {
         this.identificador = identificador;
     }
@@ -50,13 +65,21 @@ public class Vaga implements Serializable{
     public ArrayList<UsoDaVaga> getUsoDaVaga() {
         return usoDaVaga;
     }
+
+    public void setUsoDaVaga(ArrayList<UsoDaVaga> usoDaVaga) {
+        this.usoDaVaga = usoDaVaga;
+    }
     
     public UsoDaVaga getUltimo() {
         return usoDaVaga.get(usoDaVaga.size() - 1);
     }
 
     public void addUsoVaga(UsoDaVaga novoUso) {
+        if (this.usoDaVaga == null) {
+        this.usoDaVaga = new ArrayList<>();
+    }
         this.usoDaVaga.add(novoUso);
+
     }
 
     public double calcularPrecoVaga(double valorParcial) {

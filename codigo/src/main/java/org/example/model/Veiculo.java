@@ -8,6 +8,10 @@ public class Veiculo implements Serializable{
     private String marca;
     private static final long serialVersionUID = 1L;
 
+    public Veiculo() {
+        
+    }
+    
     public Veiculo(String placa, String modelo, String marca) {
         this.placa = placa;
         this.modelo = modelo;
@@ -24,6 +28,18 @@ public class Veiculo implements Serializable{
 
     public String getMarca() {
         return marca;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     @Override

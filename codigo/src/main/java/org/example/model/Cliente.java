@@ -11,6 +11,9 @@ public class Cliente implements Serializable{
     private String telefone;
      private static final long serialVersionUID = 1L;
 
+    public Cliente() {
+    }
+    
     public Cliente(String nome, String cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
@@ -49,6 +52,14 @@ public class Cliente implements Serializable{
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setVeiculos(ArrayList<Veiculo> veiculos) {
+        this.veiculos = veiculos;
     }
 
     public void adicionarVeiculo(Veiculo veiculo) {

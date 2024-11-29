@@ -1,16 +1,13 @@
 package org.example.controller;
 
 import javax.swing.JOptionPane;
-import org.example.DTO.AbstractDAO;
-import org.example.DTO.Clientes;
+import org.example.DTO.ClienteDAO;
 import org.example.model.Cliente;
 import org.example.view.CadastrarClienteView;
 
 public class CadastrarClienteController {
     
     private CadastrarClienteView view;
-    private Clientes clientes;
-    private final String endereço = "clientes.txt";
     
     public CadastrarClienteController(javax.swing.JDesktopPane tela) {
         
@@ -22,7 +19,6 @@ public class CadastrarClienteController {
         int y = (tela.getHeight() - view.getHeight()) / 2;
         view.setLocation(x, y);
         
-        this.clientes = Clientes.getInstancia();
         
         this.view.getBtnCadastrar().addActionListener((e)->{
             addCliente();
@@ -46,9 +42,10 @@ public class CadastrarClienteController {
            JOptionPane.showMessageDialog(view, "Dados invalidos");   
         }else {
             Cliente obj = new Cliente(nome, cpf, telefone);
-            this.clientes.addCliente(obj);
-            this.clientes.gravar(endereço, clientes.getClientes());
-            JOptionPane.showMessageDialog(view, "Cliente Salvo com Sucesso!");  
+            new ClienteDAO().cadastrarCliente(obj);
+            JOptionPane.showMessageDialog(view, "Cliente Salvo com Sucesso!");
+            view.dispose();
+            
        }
     }
 
