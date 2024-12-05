@@ -8,12 +8,12 @@ package org.example.view;
  *
  * @author Joao
  */
-public class HistoricoClienteView extends javax.swing.JInternalFrame {
+public class ListaDeVagasView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form HistoricoClienteView2
+     * Creates new form ListaDeVagas
      */
-    public HistoricoClienteView() {
+    public ListaDeVagasView() {
         initComponents();
     }
 
@@ -29,35 +29,35 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaHistorico = new javax.swing.JTable();
+        tabelaVagas = new javax.swing.JTable();
         btnVoltar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Histórico ");
+        setTitle("Tabela de vagas");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Histórico do Cliente"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Vagas"));
 
-        tabelaHistorico.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaVagas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id da Vaga", "Tempo Estacionado", "Data", "Preço"
+                "Estacionamento", "Tipo de vaga", "Vagas usadas", "Total de vagas", "Percentual de Ocupação"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tabelaHistorico.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tabelaHistorico);
-        if (tabelaHistorico.getColumnModel().getColumnCount() > 0) {
-            tabelaHistorico.getColumnModel().getColumn(1).setResizable(false);
+        tabelaVagas.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabelaVagas);
+        if (tabelaVagas.getColumnModel().getColumnCount() > 0) {
+            tabelaVagas.getColumnModel().getColumn(4).setMinWidth(100);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -66,7 +66,7 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -92,9 +92,7 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(btnVoltar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +108,7 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,15 +128,15 @@ public class HistoricoClienteView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaHistorico;
+    private javax.swing.JTable tabelaVagas;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JTable getTabelaHistorico() {
-    return tabelaHistorico;
-    }
-
-    public javax.swing.JButton getBtnVoltar() {
-    return btnVoltar;
+     public javax.swing.JButton GetBtnVoltar(){
+        return btnVoltar;
     }
     
+    public javax.swing.JTable GetTabelaVagas(){
+        return tabelaVagas;
+    }
+
 }
