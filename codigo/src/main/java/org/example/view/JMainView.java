@@ -38,10 +38,12 @@ public class JMainView extends javax.swing.JFrame {
         menuValores = new javax.swing.JMenuItem();
         menuEstacionarVeiculo = new javax.swing.JMenuItem();
         menuLiberarVaga = new javax.swing.JMenuItem();
+        menuListarVagas = new javax.swing.JMenuItem();
         menuControlarClientes = new javax.swing.JMenu();
         menuCadastrarClientes = new javax.swing.JMenuItem();
         menuHistoricoCliente = new javax.swing.JMenuItem();
         menuCadastrarVeiculo = new javax.swing.JMenuItem();
+        menuListarCarros = new javax.swing.JMenuItem();
         menuSobre = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -124,6 +126,9 @@ public class JMainView extends javax.swing.JFrame {
         menuLiberarVaga.setText("Liberar vaga");
         menuControlarEstacionamentos.add(menuLiberarVaga);
 
+        menuListarVagas.setText("Lista de vagas");
+        menuControlarEstacionamentos.add(menuListarVagas);
+
         jMenuBar1.add(menuControlarEstacionamentos);
 
         menuControlarClientes.setText("Controlar clientes");
@@ -141,6 +146,9 @@ public class JMainView extends javax.swing.JFrame {
             }
         });
         menuControlarClientes.add(menuCadastrarVeiculo);
+
+        menuListarCarros.setText("Lista dos carros");
+        menuControlarClientes.add(menuListarCarros);
 
         jMenuBar1.add(menuControlarClientes);
 
@@ -257,7 +265,9 @@ public class JMainView extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuEstacionarVeiculo;
     private javax.swing.JMenuItem menuHistoricoCliente;
     private javax.swing.JMenuItem menuLiberarVaga;
+    private javax.swing.JMenuItem menuListarCarros;
     private javax.swing.JMenuItem menuListarEstacionamentos;
+    private javax.swing.JMenuItem menuListarVagas;
     private javax.swing.JMenu menuSobre;
     private javax.swing.JMenuItem menuValores;
     private javax.swing.JDesktopPane tela;
@@ -294,6 +304,15 @@ public class JMainView extends javax.swing.JFrame {
     public javax.swing.JMenuItem getMenuValores() {
     return menuValores;
     }
+    
+    public javax.swing.JMenuItem getMenuListarCarros() {
+    return menuListarCarros;
+    }
+    
+    public javax.swing.JMenuItem getMenuListarVagas() {
+    return menuListarVagas;
+    }
+    
     public javax.swing.JDesktopPane getTela() {
         return tela;
     }

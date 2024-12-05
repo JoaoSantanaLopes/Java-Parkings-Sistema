@@ -47,6 +47,11 @@
                 <Property name="text" type="java.lang.String" value="Liberar vaga"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuListarVagas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lista de vagas"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuControlarClientes">
@@ -71,6 +76,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCadastrarVeiculoActionPerformed"/>
               </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuListarCarros">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lista dos carros"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
