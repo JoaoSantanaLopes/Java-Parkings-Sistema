@@ -68,32 +68,35 @@ public class EstacionarVeiculoController {
             obj = new ClienteDAO().procurarCliente(cpf);
             idCliente = new ClienteDAO().procurarId(cpf);
         }
-        
+    try {
         String nome = view.getNomeEstacionamento().getText();
         Estacionamento obj2 = new EstacionamentoDAO().procurarEstacionamento(nome);
+        if (obj2 == null) {
+            throw new NullPointerException("Estacionamento não existe!");
+        }
+
         int id = new EstacionamentoDAO().procurarId(nome);
-        
+
         String placa = view.getPlaca().getText();
-        Veiculo obj3 = new VeiculoDAO().pesquisaVeiculoPorPlaca(placa, idCliente);
-        
+        Veiculo obj3 = new VeiculoDAO().pesquisaVeiculoPorPlaca(placa, id);
+        if (obj3 == null) {
+            throw new NullPointerException("Veículo não existe!");
+        }
+
         String identificador = view.getIdentificadorVaga().getText();
         int idVaga = new VagaDAO().procurarId(identificador, id);
         Vaga obj4 = new VagaDAO().procurarVaga(idVaga);
-        
-        if(obj == null) {
-            JOptionPane.showMessageDialog(view, "Cliente não existe!!");
+        if (obj4 == null) {
+            throw new NullPointerException("Vaga não existe ou não te pertence!");
         }
-        else if(obj2 == null){
-            JOptionPane.showMessageDialog(view, "Estacionamento não existe!!");   
-        }
-        else if(obj3 == null){
-            JOptionPane.showMessageDialog(view, "Veículo não existe!!");
-        }
-        else if(obj4 == null){
-            JOptionPane.showMessageDialog(view, "Vaga não existe ou não te Pertence!!");
-        }else {
-            Estacionar(obj, obj2, obj4);
-        }
+
+        Estacionar(obj, obj2, obj4);
+
+    } catch (NullPointerException e) {
+        JOptionPane.showMessageDialog(view, e.getMessage());
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(view, "Erro inesperado: " + e.getMessage());
+    }
     }
    
 

@@ -5,6 +5,7 @@
  */
 package org.example.DTO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -117,5 +118,45 @@ public class EstacionamentoDAO {
            e.printStackTrace(); 
         }
         return lista;
+    }
+    
+    
+    public void listarOcupacaoMedia() {
+        String sql = """
+            SELECT 
+                e.nome AS nome_estacionamento,
+                v.tipo_vaga,
+                COUNT(udv.id) AS total_vagas_usadas,
+                COUNT(v.id) AS total_vagas,
+                (COUNT(udv.id) * 100.0 / COUNT(v.id)) AS percentual_ocupacao
+            FROM 
+                Estacionamento e
+            JOIN 
+                Vaga v ON e.id = v.estacionamento_id
+            LEFT JOIN 
+                UsoDaVaga udv ON v.id = udv.vaga_id
+            GROUP BY 
+                e.id, e.nome, v.tipo_vaga
+            ORDER BY 
+                percentual_ocupacao DESC;
+        """;
+
+        try (Connection conn = BancoDados.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                String estacionamento = rs.getString("nome_estacionamento");
+                String tipoVaga = rs.getString("tipo_vaga");
+                int totalVagasUsadas = rs.getInt("total_vagas_usadas");
+                int totalVagas = rs.getInt("total_vagas");
+                double percentualOcupacao = rs.getDouble("percentual_ocupacao");
+
+                System.out.printf("Estacionamento: %s | Tipo de Vaga: %s | Vagas Usadas: %d/%d | Ocupação: %.2f%%\n",
+                        estacionamento, tipoVaga, totalVagasUsadas, totalVagas, percentualOcupacao);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

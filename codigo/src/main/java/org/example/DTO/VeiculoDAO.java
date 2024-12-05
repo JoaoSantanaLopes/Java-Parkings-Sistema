@@ -4,6 +4,7 @@
  */
 package org.example.DTO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,7 +64,7 @@ public class VeiculoDAO {
         return lista;
     }
     
-        public Veiculo pesquisaVeiculoPorPlaca(String placa, int id) {
+    public Veiculo pesquisaVeiculoPorPlaca(String placa, int id) {
         
         Veiculo obj = null;
         
@@ -88,5 +89,41 @@ public class VeiculoDAO {
         }
         
         return obj;
+    }
+    
+        public void listarVeiculosFrequentes() {
+        String sql = """
+            SELECT 
+                v.placa,
+                v.modelo,
+                v.marca,
+                COUNT(udv.id) AS vezes_utilizadas
+            FROM 
+                Veiculo v
+            JOIN 
+                UsoDaVaga udv ON v.id = udv.cliente_id
+            GROUP BY 
+                v.id, v.placa, v.modelo, v.marca
+            ORDER BY 
+                vezes_utilizadas DESC
+            LIMIT 5;
+        """;
+
+        try (Connection conn = BancoDados.getConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                String placa = rs.getString("placa");
+                String modelo = rs.getString("modelo");
+                String marca = rs.getString("marca");
+                int vezesUtilizadas = rs.getInt("vezes_utilizadas");
+
+                System.out.printf("Placa: %s | Modelo: %s | Marca: %s | Utilizações: %d\n",
+                        placa, modelo, marca, vezesUtilizadas);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
