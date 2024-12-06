@@ -78,7 +78,7 @@ public class EstacionarVeiculoController {
         int id = new EstacionamentoDAO().procurarId(nome);
 
         String placa = view.getPlaca().getText();
-        Veiculo obj3 = new VeiculoDAO().pesquisaVeiculoPorPlaca(placa, id);
+        Veiculo obj3 = new VeiculoDAO().pesquisaVeiculoPorPlaca(placa, idCliente);
         if (obj3 == null) {
             throw new NullPointerException("Veículo não existe!");
         }

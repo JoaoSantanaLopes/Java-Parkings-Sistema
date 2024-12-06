@@ -38,7 +38,6 @@ public class MainController {
             HistoricoUsuarioController ef = new HistoricoUsuarioController(view.getTela());
         });
         
-        
         view.getMenuLiberarVaga().addActionListener(e ->{
             ListarVagasOcupadasController g = new ListarVagasOcupadasController(view.getTela(), view);
         });
@@ -47,11 +46,17 @@ public class MainController {
             ListarEstacionamentosController h = new ListarEstacionamentosController(view.getTela());
         });
         
-        
         view.getMenuValores().addActionListener(e ->{
             ValoresController i = new ValoresController(view.getTela());
         });
         
+        view.getMenuListarVagas().addActionListener(e ->{
+           ListaDeVagasController j = new ListaDeVagasController(view.getTela());
+        });
+        
+        view.getMenuListarCarros().addActionListener(e ->{
+           ListaDeCarrosController j = new ListaDeCarrosController(view.getTela());
+        });
         
         view.setVisible(true);
     }

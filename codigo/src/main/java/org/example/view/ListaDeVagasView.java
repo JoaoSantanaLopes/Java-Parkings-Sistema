@@ -43,11 +43,11 @@ public class ListaDeVagasView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Estacionamento", "Tipo de vaga", "Vagas usadas", "Total de vagas", "Percentual de Ocupação"
+                "Tipo de vaga", "Vagas usadas", "Total de vagas", "Percentual de Ocupação"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -57,7 +57,7 @@ public class ListaDeVagasView extends javax.swing.JInternalFrame {
         tabelaVagas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaVagas);
         if (tabelaVagas.getColumnModel().getColumnCount() > 0) {
-            tabelaVagas.getColumnModel().getColumn(4).setMinWidth(100);
+            tabelaVagas.getColumnModel().getColumn(3).setMinWidth(100);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

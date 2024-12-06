@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import org.example.model.Veiculo;
 
 /**
@@ -91,39 +92,55 @@ public class VeiculoDAO {
         return obj;
     }
     
-        public void listarVeiculosFrequentes() {
+         public List<Object[]> listarOcupacaoMedia() {
         String sql = """
-            SELECT 
-                v.placa,
-                v.modelo,
-                v.marca,
-                COUNT(udv.id) AS vezes_utilizadas
-            FROM 
-                Veiculo v
-            JOIN 
-                UsoDaVaga udv ON v.id = udv.cliente_id
-            GROUP BY 
-                v.id, v.placa, v.modelo, v.marca
-            ORDER BY 
-                vezes_utilizadas DESC
-            LIMIT 5;
-        """;
+                     SELECT 
+                         c.nome AS nome_cliente,
+                         v.placa,
+                         v.modelo,
+                         v.marca,
+                         COUNT(udv.id) AS vezes_utilizadas
+                     FROM 
+                         veiculo v
+                     JOIN 
+                         cliente c ON v.cliente_id = c.id
+                     JOIN 
+                         ticket udv ON v.id = udv.cliente_id
+                     GROUP BY 
+                         c.nome, v.id, v.placa, v.modelo, v.marca
+                     ORDER BY 
+                         vezes_utilizadas DESC
+                     LIMIT 10;""";
 
-        try (Connection conn = BancoDados.getConexao();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-
+        List<Object[]> veiculosList = new ArrayList<>();
+        PreparedStatement ps = null;
+        try {
+            ps = BancoDados.getConexao().prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String placa = rs.getString("placa");
                 String modelo = rs.getString("modelo");
                 String marca = rs.getString("marca");
+                String nome = rs.getString("nome_cliente");
                 int vezesUtilizadas = rs.getInt("vezes_utilizadas");
 
-                System.out.printf("Placa: %s | Modelo: %s | Marca: %s | Utilizações: %d\n",
-                        placa, modelo, marca, vezesUtilizadas);
+               
+                Object[] veiculoData = new Object[] {
+                    placa,
+                    modelo,
+                    marca,
+                    nome,
+                    vezesUtilizadas
+                };
+                
+                veiculosList.add(veiculoData);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        return veiculosList;
     }
 }

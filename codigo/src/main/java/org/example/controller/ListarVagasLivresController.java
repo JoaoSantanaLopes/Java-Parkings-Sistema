@@ -49,7 +49,7 @@ public class ListarVagasLivresController {
         Estacionamento obj = new EstacionamentoDAO().procurarEstacionamento(nome);
         
         if(obj == null) {
-            JOptionPane.showMessageDialog(view, "Estacionamento não existe!!");  
+            JOptionPane.showMessageDialog(preview, "Estacionamento não existe!!");  
         }
         else {
             ListarVagas(tela, obj);

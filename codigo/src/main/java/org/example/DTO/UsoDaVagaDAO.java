@@ -122,7 +122,8 @@ public class UsoDaVagaDAO {
         Cliente cliente = obj.getCliente();
         Vaga vaga = obj.getVaga();
         int idCliente = new ClienteDAO().procurarId(cliente.getCpf());
-        int idVaga = new VagaDAO().procurarId(vaga.getIdentificador(), idCliente);
+        int id = vaga.getIdEstacionamento();
+        int idVaga = new VagaDAO().procurarId(vaga.getIdentificador(), id);
         PreparedStatement ps = null;
         
         try {
