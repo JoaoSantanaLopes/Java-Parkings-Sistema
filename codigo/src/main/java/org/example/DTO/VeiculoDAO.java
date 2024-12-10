@@ -105,7 +105,7 @@ public class VeiculoDAO {
                      JOIN 
                          cliente c ON v.cliente_id = c.id
                      JOIN 
-                         ticket udv ON v.id = udv.cliente_id
+                         ticket udv ON c.id = udv.cliente_id
                      GROUP BY 
                          c.nome, v.id, v.placa, v.modelo, v.marca
                      ORDER BY 

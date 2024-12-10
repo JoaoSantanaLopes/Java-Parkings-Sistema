@@ -16,13 +16,13 @@ import java.util.logging.Logger;
  */
 public class BancoDados {
     
-    private static final String banco = "xulambs_park";
+    private static final String banco = "xulambs";
     
     private static final String usuario = "root";
     
     private static final String senha = "rootroot";
     
-    private static String url = "jdbc:mysql://localhost:3306/xulambs_park";
+    private static String url = "jdbc:mysql://localhost:3306/xulambs";
     
     private static Connection conexao;
 

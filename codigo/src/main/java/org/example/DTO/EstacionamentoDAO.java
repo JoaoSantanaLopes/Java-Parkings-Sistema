@@ -122,26 +122,27 @@ public class EstacionamentoDAO {
     
     
        public List<Object[]> listarOcupacaoMedia(int idEstacionamento) {
-        String sql = """
-        SELECT 
-            e.nome AS nome_estacionamento,
-            v.tipo_vaga,
-            COUNT(CASE WHEN udv.id IS NOT NULL AND udv.data_saida IS NULL AND udv.tempo_gasto IS NULL AND udv.preco IS NULL THEN 1 END) AS total_vagas_usadas,
-            COUNT(v.id) AS total_vagas,
-            (COUNT(CASE WHEN udv.id IS NOT NULL AND udv.data_saida IS NULL AND udv.tempo_gasto IS NULL AND udv.preco IS NULL THEN 1 END) * 100.0 / COUNT(v.id)) AS percentual_ocupacao
-        FROM 
-            estacionamento e
-        JOIN 
-            vaga v ON e.id = v.estacionamento_id
-        LEFT JOIN 
-            ticket udv ON v.id = udv.vaga_id
-        WHERE 
-            e.id = ? 
-        GROUP BY 
-            e.id, e.nome, v.tipo_vaga
-        ORDER BY 
-            percentual_ocupacao DESC;
-        """;
+String sql = """
+SELECT 
+    e.nome AS nome_estacionamento,
+    v.tipo_vaga,
+    COUNT(CASE WHEN udv.id IS NOT NULL AND udv.data_saida IS NULL AND udv.tempo_gasto IS NULL AND udv.preco IS NULL THEN 1 END) AS total_vagas_usadas,
+    COUNT(v.id) AS total_vagas,
+    (COUNT(CASE WHEN udv.id IS NOT NULL AND udv.data_saida IS NULL AND udv.tempo_gasto IS NULL AND udv.preco IS NULL THEN 1 END) * 100.0 / COUNT(v.id)) AS percentual_ocupacao
+FROM 
+    estacionamento e
+JOIN 
+    vaga v ON e.id = v.estacionamento_id
+LEFT JOIN 
+    ticket udv ON v.id = udv.vaga_id AND udv.data_saida IS NULL  -- Garantir que estamos considerando tickets não finalizados
+WHERE 
+    e.id = ?
+GROUP BY 
+    e.id, e.nome, v.tipo_vaga
+ORDER BY 
+    percentual_ocupacao DESC;
+""";
+
 
         List<Object[]> ocupacaoList = new ArrayList<>();
         PreparedStatement ps = null;
